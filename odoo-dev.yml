@@ -1,0 +1,40 @@
+services:
+  odoo:
+    image: odoo:16.0
+    container_name: odoo16-dev
+    networks:
+      - odoo-dev-network
+    env_file: .env
+    depends_on:
+      - db
+    links:
+      - db:db
+    ports:
+      - "8069:8069"
+      - "8072:8072"
+    volumes:
+      - odoo-dev-web-data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./custom-addons:/mnt/extra-addons
+      - ./custom-themes:/mnt/themes
+    restart: always
+  db:
+    image: postgres:15
+    container_name: db-dev
+    env_file: .env
+    ports:
+      - "5433:5432"
+    volumes:
+      - odoo-dev-db-data:/var/lib/postgresql/data/pgdata
+      - ./postgresql/customPostgresql.conf:/etc/postgresql/postgresql.conf
+    restart: always
+    networks:
+      - odoo-dev-network
+
+volumes:
+  odoo-dev-web-data:
+  odoo-dev-db-data:
+
+networks:
+  odoo-dev-network:
+    driver: bridge

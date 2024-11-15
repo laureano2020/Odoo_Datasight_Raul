@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <template name="Alia Reports - Stock Block: Delivery Slip Concepts Table"
+              id="alia_reports_stock.delivery_slip_concepts_table">
+
+      <div id="alia-reports-stock-delivery-slip-concepts-table" class="alia-reports-block" t-if="o.state!='done'">
+
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th class="text-left">
+                <strong>Product</strong>
+              </th>
+              <th class="text-right">
+                <strong>Quantity</strong>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <t t-set="lines" t-value="o.move_ids.filtered(lambda x: x.product_uom_qty)"/>
+            <tr t-foreach="lines" t-as="move">
+              <td class="text-left">
+                <span t-field="move.product_id"/>
+                <p t-if="o.picking_type_code == 'outgoing'">
+                  <span t-field="move.product_id.sudo().description_pickingout"/>
+                </p>
+                <p t-if="o.picking_type_code == 'incoming'">
+                  <span t-field="move.product_id.sudo().description_pickingin"/>
+                </p>
+              </td>
+              <td class="text-right">
+                <span t-field="move.product_uom_qty"/>
+                <span t-field="move.product_uom"/>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+    </template>
+  </data>
+</odoo>

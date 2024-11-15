@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports - Sale Order Block: Order Info" id="alia_reports_sale_order.order_info">
+
+      <div id="alia-reports-sale-order-order-info" class="alia-reports-block">
+
+        <div class="basic-report-info">
+
+          <div t-if="o.name">
+            <strong>Reference</strong>
+            <span t-field="o.name"/>
+          </div>
+
+          <div t-if="o.client_order_ref">
+            <strong>Your Reference</strong>
+            <span t-field="o.client_order_ref"/>
+          </div>
+
+          <!-- Date Info -->
+          <t t-call="alia_reports_sale_order.report_date" t-lang="lang"/>
+
+        </div>
+
+      </div>
+
+    </template>
+
+  </data>
+</odoo>

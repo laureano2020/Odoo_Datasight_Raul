@@ -1,0 +1,92 @@
+@charset "utf-8";
+// ===========================================================================================
+// BOOTSTRAP STYLES EXTENDER
+// ===========================================================================================
+
+// -------------------------------------
+// Separators
+// -------------------------------------
+
+// Apply row divider styles
+// - $separation-gutter: Gutter before and after divider position.
+// - $has-lateral-gutter: For Bootstrap grid elements padding.
+// - $separator: Border style definition for separator.
+@mixin make-separator ($separation-gutter: $grid-gutter-width, $has-lateral-gutters: false, $separator: $separator-border) {
+  display:block;
+  margin: auto;
+  padding-top: $separation-gutter;
+  margin-top: $separation-gutter;
+  border-top: $separator;
+  @if $has-lateral-gutters {
+    width: calc(100% - #{$grid-gutter-width});
+  }
+  @else {
+    width: 100%;
+  }
+}
+
+// Apply row divider to an item after it
+// - $separation-gutter: Gutter before and after divider position.
+// - $has-lateral-gutter: For Bootstrap grid elements padding.
+// - $separator: Border style definition for separator.
+@mixin make-separator-after($separation-gutter: $grid-gutter-width, $has-lateral-gutters: false, $separator: $separator-border) {
+  &:after {
+    content: "";
+    @include make-separator($separation-gutter, $has-lateral-gutters, $separator)
+  }
+}
+
+// Apply row divider to an item before it
+// - $separation-gutter: Gutter before and after divider position.
+// - $has-lateral-gutter: For Bootstrap grid elements padding.
+// - $separator: Border style definition for separator.
+@mixin make-separator-before($separation-gutter: $grid-gutter-width, $has-lateral-gutters: false, $separator: $separator-border) {
+  &:before {
+    content: "";
+    @include make-separator($separation-gutter, $has-lateral-gutters, $separator)
+  }
+}
+
+// Apply row divider to an item before and after it
+// - $separation-gutter: Gutter before and after divider position.
+// - $has-lateral-gutter: For Bootstrap grid elements padding.
+// - $separator: Border style definition for separator.
+@mixin make-separator-both($separation-gutter: $grid-gutter-width, $has-lateral-gutters: false, $separator: $separator-border) {
+  @include make-separator-before($separation-gutter, $has-lateral-gutters, $separator);
+  @include make-separator-after ($separation-gutter, $has-lateral-gutters, $separator);
+}
+
+// -------------------------------------
+// Rows
+// -------------------------------------
+
+// Make a GRID row with no gutters.
+@mixin make-row-no-gutters() {
+  @include clearfix;
+  @include make-row(0);
+}
+
+// Show row with divider before it.
+// - $separation-gutter: Gutter before and after divider position.
+// - $has-lateral-gutters: Row has lateral negative gutters or not.
+// - $separator: Border style definition for separator.
+@mixin make-row-with-divider($separation-gutter: $grid-gutter-width, $has-lateral-gutters: false, $separator: $separator-border) {
+  @if $has-lateral-gutters {
+    @include make-row();
+  }
+  @else {
+    @include make-row-no-gutters();
+  }
+  @include make-separator-before($separation-gutter, $has-lateral-gutters, $separator);
+  &:first-child {
+    &:before {
+      display:none;
+    }
+  }
+}
+
+// Make Flex GRID column with exact width
+@mixin make-col-exact ($width: 0, $padding: 0) {
+  flex: 0 0 $width;
+  max-width: $width;
+}

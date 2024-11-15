@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports - Sale Order Block: Report Title" id="alia_reports_sale_order.report_title">
+
+      <div id="alia-reports-sale-order-report-title" class="alia-reports-block">
+        <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
+          <span t-if="o.state not in ['draft','sent'] and not o.print_as_quotation">Order</span>
+          <span t-if="o.state in ['draft','sent'] or o.print_as_quotation">Quotation</span>
+        </t>
+
+        <t t-if="env.context.get('proforma', False) or is_pro_forma">
+          <span>Pro-Forma Invoice</span>
+        </t>
+        <!--<span t-field="doc.name"/>-->
+
+      </div>
+
+    </template>
+
+  </data>
+</odoo>

@@ -1,0 +1,77 @@
+/*************************************************************************/
+/** Block: Header
+/*************************************************************************/
+
+##{$module-name-prefix-base}-header {
+  padding-top: 10px;
+
+  & > .row {
+    height: $alia-reports-base-header-height;
+  }
+
+  // ---------------------------
+  // Header: Logo
+  // ---------------------------
+
+  //#header-logo {
+  //  .header-logo-wrapper {
+  //    @include center-vertically();
+  //
+  //    img {
+  //      max-height: $alia-reports-base-header-height - 20px;
+  //      width: auto;
+  //      height: auto !important;
+  //    }
+  //  }
+  //}
+
+    #header-logo {
+    .header-logo-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        max-height: 50px;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+
+  // ---------------------------
+  // Header: Information
+  // ---------------------------
+  #header-info {
+    color: color-text(light);
+    font-size: 0.9rem;
+    text-align: right;
+    position: relative;
+    line-height:1.5em;
+
+    .header-info-wrapper {
+      @include center-vertically();
+      right: $alia-reports-base-gutter-base + 4px;
+      border-right: 6.5px solid color-main(light);
+      padding-right: 10px;
+    }
+
+    .company-name {
+      color: color-main();
+      font-size: 1rem;
+      padding-bottom: 4px;
+    }
+  }
+
+  // ---------------------------
+  // Header: Pager
+  // ---------------------------
+  ##{$module-name-prefix-base}-pager {
+    border-top: $alia-reports-base-separator-border;
+    margin-top: 10px;
+    padding-top: $alia-reports-base-gutter-base/2;
+    padding-bottom: $alia-reports-base-gutter-base/2;
+  }
+
+}

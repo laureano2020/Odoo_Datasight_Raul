@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports - Sale Order Block: Basic Info" id="alia_reports_sale_order.basic_info">
+
+      <div id="alia-reports-sale-order-basic-info" class="alia-reports-block">
+
+        <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)"/>
+
+        <!-- Report Title & Date -->
+        <div class="row no-gutters report-title">
+          <div class="col-12">
+
+            <!-- Block: Report Title -->
+            <t t-call="alia_reports_sale_order.report_title" t-lang="lang"/>
+
+          </div>
+
+        </div>
+
+        <!-- Report Client & Report Info -->
+        <div class="row">
+          <div class="col-8">
+
+            <!-- Block: Client Info -->
+            <t t-call="alia_reports_base.client_info" t-lang="lang"/>
+
+          </div>
+          <div class="col-4">
+
+            <!-- Block: Order Info -->
+            <t t-call="alia_reports_sale_order.order_info" t-lang="lang"/>
+
+          </div>
+        </div>
+
+      </div>
+
+    </template>
+
+  </data>
+</odoo>

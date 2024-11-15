@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2015-3/5/21 Alia Technologies, S.L. - http://www.alialabs.com
+     @author:alia
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+  <data>
+    <record id="alia_account_payment_term_form" model="ir.ui.view">
+      <field name="name">alia.account.payment.term.form</field>
+      <field name="model">account.payment.term</field>
+      <field name="inherit_id" ref="account.view_payment_term_form"/>
+      <field name="arch" type="xml">
+        <field name='line_ids' position="after">
+          <separator string="Invoice Report"/>
+          <group name="alia_reports_invoice_payment_mode_options" col="4">
+            <p class="text-muted" colspan="4">
+              Options for Invoice Report customization.
+            </p>
+            <div>
+              <field name="report_label" nolabel="1" class="oe_inline"/>
+              <label for="report_label" class="oe_inline"/>
+            </div>
+            <div>
+              <field name="report_invoice_dues" nolabel="1" class="oe_inline"/>
+              <label for="report_invoice_dues" class="oe_inline"/>
+            </div>
+            <div></div>
+            <div></div>
+          </group>
+        </field>
+      </field>
+    </record>
+  </data>
+</odoo>

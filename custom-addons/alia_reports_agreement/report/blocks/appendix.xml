@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports - Agreement Block: Appendix" id="alia_reports_agreement.appendix">
+
+      <div t-foreach="doc.appendix_ids" t-as="a">
+        <div class="page page-agreement page-appendix">
+          <div class="report-title-bw" t-field="a.title"
+              style="page-break-before: always;"/>
+          <p t-field="a.dynamic_content"/>
+        </div>
+      </div>
+
+    </template>
+
+  </data>
+</odoo>

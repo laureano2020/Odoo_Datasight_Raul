@@ -1,0 +1,17 @@
+///*************************************************************************/
+///**                                                                     **/
+///**    General styles definition                                        **/
+///**    Brais Saco - Alia Technologies                                   **/
+///**                                                                     **/
+///*************************************************************************/
+
+// ---------------------------
+// Structure
+// ---------------------------
+html, body {
+
+  .contents-wrapper > .page.page-stock-report {
+    @include report-content-without-lateral-gutters; // No lateral gutters.
+  }
+
+}

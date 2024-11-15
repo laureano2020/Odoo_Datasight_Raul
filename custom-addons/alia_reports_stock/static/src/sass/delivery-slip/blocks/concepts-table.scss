@@ -1,0 +1,11 @@
+/*************************************************************************/
+/** Block: Delivery Slip / Concepts Table
+/*************************************************************************/
+
+##{$module-name-prefix-stock-delivery-slip}-concepts-table {
+
+  @extend %concepts-table-second;
+
+  @extend %alia-reports-stock-table;
+
+}

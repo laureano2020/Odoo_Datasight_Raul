@@ -1,0 +1,33 @@
+///*************************************************************************/
+///**                                                                     **/
+///**    Delivery Slip Report General styles definition                   **/
+///**    Brais Saco - Alia Technologies                                   **/
+///**                                                                     **/
+///*************************************************************************/
+
+// ---------------------------
+// Structure
+// ---------------------------
+html, body {
+
+  ##{$module-name-prefix-stock-delivery-slip}-basic-info {
+    margin-bottom: $alia-reports-base-gutter-base*2;
+  }
+
+  ##{$module-name-prefix-stock-delivery-slip}-order-table {
+    margin-bottom: $alia-reports-base-gutter-base*2;
+  }
+
+  ##{$module-name-prefix-stock-delivery-slip}-concepts-table {
+    margin-bottom: $alia-reports-base-gutter-base*3;
+  }
+
+  ##{$module-name-prefix-stock-delivery-slip}-concepts-done-table {
+    margin-bottom: $alia-reports-base-gutter-base*3;
+  }
+
+  ##{$module-name-prefix-stock-delivery-slip}-shipping-warning {
+    margin-top: $alia-reports-base-gutter-base*3;
+  }
+
+}

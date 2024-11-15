@@ -1,0 +1,36 @@
+/*************************************************************************/
+/** Block: Footer
+/*************************************************************************/
+
+##{$module-name-prefix-base}-footer {
+
+  // ---------------------------
+  // Footer: Reg Mercantil text
+  // ---------------------------
+  .footer-reg-mercantil {
+    font-size: 0.75rem;
+    text-align: center;
+    color: color-text(light);
+    padding: 0.5rem 0 0.3rem;
+
+    & > span {
+      @include after {
+        content: "--"
+      }
+      @include before {
+        content: "--"
+      }
+    }
+  }
+
+  // ---------------------------
+  // Footer: Legal notice
+  // ---------------------------
+  .footer-legal-notice {
+    font-size: 0.5rem;
+    text-align: justify;
+    padding-bottom: 30px;
+    color: color-text(lighter)
+  }
+
+}

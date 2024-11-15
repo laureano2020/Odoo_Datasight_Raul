@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <record id="agreement_add_print_button_inherit" model="ir.ui.view">
+            <field name="name">agreement.add.print.button.inherit</field>
+            <field name="model">agreement</field>
+            <field name="inherit_id" ref="agreement.agreement_form" />
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/div[@class='oe_button_box']" position="inside">
+                    <button name="print_agreement_report" type="object" class="oe_stat_button" icon="fa-print icon">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Print</span>
+                            </div>
+                    </button>
+
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

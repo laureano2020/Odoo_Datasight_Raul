@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <template name="Alia Reports - Agreement Block: Signatures" id="alia_reports_agreement.signatures">
+
+      <div id="alia-reports-agreement-signatures" class="alia-reports-block">
+
+        <div class="section-title">Signatures:</div>
+
+        <div class="row">
+          <div class="col-6 highlight-text pb-3">Partner</div>
+          <div class="col-6 highlight-text pb-3">Company</div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="signature-wrapper">
+              <p class="signature-title" t-field="doc.partner_id"/>
+              <p>By:</p>
+              <p>Name: <span t-field="doc.partner_contact_id.name"/></p>
+              <p>Title: <span t-field="doc.partner_contact_id.function"/></p>
+              <p>Date: </p>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="signature-wrapper">
+              <p class="signature-title" t-field="doc.company_id.partner_id"/>
+              <p>By:</p>
+              <p>Name: <span t-field="doc.company_contact_id.name"/></p>
+              <p>Title: <span t-field="doc.company_contact_id.function"/></p>
+              <p>Date: </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </template>
+  </data>
+</odoo>

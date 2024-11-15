@@ -1,0 +1,32 @@
+/*************************************************************************/
+/** Block: Recitals Info
+/*************************************************************************/
+
+##{$module-name-prefix-agreement}-clauses-list {
+
+  .clauses-list-title {
+    color: color-main();
+    font-weight: bold;
+    margin-bottom: 0.8em;
+  }
+
+  .clauses-list {
+
+    > li:before {
+      content: counter(item, lower-alpha) ".";
+      color: color-bw(light);
+      font-size: 1em;
+    }
+
+    .list-item-title {
+      color: color-bw(light);
+      font-size: 1em;
+      margin-bottom: 0.25em;
+    }
+
+  }
+
+}
+
+
+

@@ -1,0 +1,22 @@
+/*************************************************************************/
+/** Block: Total Amount
+/*************************************************************************/
+
+##{$module-name-prefix-base}-totals {
+
+  .report-amount-wrapper {
+
+    > .row {
+      &.amount-residual {
+        color: color_main();
+        > :first-child {
+          @include make-col-exact(45%);
+        }
+        > :last-child {
+          @include make-col-exact(55%);
+        }
+      }
+    }
+  }
+
+}

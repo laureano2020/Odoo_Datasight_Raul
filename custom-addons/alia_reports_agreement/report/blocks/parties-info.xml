@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <template name="Alia Reports - Agreement Block: Parties Info" id="alia_reports_agreement.parties_info">
+
+      <div id="alia-reports-agreement-parties-info" class="alia-reports-block">
+
+        <!--<div class="section-title">Parties</div>-->
+
+        <!--Custom Parties Format-->
+        <div name="parties">
+          <t t-if="doc.use_parties_content">
+            <p t-field="doc.dynamic_parties"/>
+          </t>
+        </div>
+
+        <!--Pre-formatted Parties format-->
+        <t t-if="not doc.use_parties_content">
+
+          <div class="row">
+
+            <div class="col-6">
+              <!--Partner Info-->
+              <t t-call="alia_reports_agreement.partner_info" t-lang="lang"/>
+            </div>
+
+            <div class="col-6">
+              <!--Company Info-->
+              <t t-call="alia_reports_agreement.company_info" t-lang="lang"/>
+            </div>
+
+          </div>
+
+        </t>
+
+      </div>
+
+    </template>
+  </data>
+</odoo>

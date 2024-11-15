@@ -1,0 +1,25 @@
+/*************************************************************************/
+/** Block: Signatures
+/*************************************************************************/
+
+##{$module-name-prefix-agreement}-signatures {
+
+  .signature-wrapper {
+    background-color: $alia-reports-base-table-bg-color-light;
+    padding: $alia-reports-base-gutter-base;
+    border: 1px dashed color-bw(lightest);
+    margin-top: $alia-reports-base-gutter-base;
+    color: color-text(lightest);
+    font-size: 0.9rem;
+
+    .signature-title {
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    p {
+      margin-bottom: 0.3em;
+    }
+  }
+
+}

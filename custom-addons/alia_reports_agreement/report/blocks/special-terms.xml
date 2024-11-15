@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <template name="Alia Reports - Agreement Block: Special Terms" id="alia_reports_agreement.special_terms">
+
+      <div id="alia-reports-agreement-special-terms" class="alia-reports-block" t-if="doc.special_terms">
+
+        <div class="section-title">Special Terms:</div>
+        <div name="special_term">
+          <p t-field="doc.dynamic_special_terms"/>
+        </div>
+
+      </div>
+
+    </template>
+  </data>
+</odoo>

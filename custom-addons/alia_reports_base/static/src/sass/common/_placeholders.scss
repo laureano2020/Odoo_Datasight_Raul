@@ -1,0 +1,90 @@
+// ===========================================================================================
+// UTILS: PLACEHOLDER SELECTORS (It can be overriden)
+// ===========================================================================================
+
+
+// -------------------------------------
+// Absolute positioned Full
+// -------------------------------------
+%absolute-full {
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+}
+
+// -------------------------------------
+// No selectable
+// -------------------------------------
+%no-selectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+%selectable {
+  -webkit-touch-callout: default;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+// -------------------------------------
+// Content alters
+// -------------------------------------
+%content-currency {
+  position: relative;
+  &:before {
+    content: '$';
+    position: relative;
+    left: 0;
+  }
+}
+
+%content-parenthesis {
+  &:before {
+    content: "(";
+  }
+  &:after {
+    content: ")";
+  }
+}
+
+%content-keys {
+  &:before {
+    content: "{";
+  }
+  &:after {
+    content: "}";
+  }
+}
+
+// -------------------------------------
+// Reader only
+// -------------------------------------
+%reader-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+// -------------------------------------
+// No Browser appearance
+// -------------------------------------
+%no-browser-appearance {
+  &::-ms-expand {	display: none; }
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

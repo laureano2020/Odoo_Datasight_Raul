@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="alia_wizard_invoice_excel_import_view" model="ir.ui.view">
+            <field name="name">alia.wizard.invoice.excel.import.view</field>
+            <field name="model">invoice.excel.import</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="uploaded_file" filename="file_name"/>
+                        <field name="file_name" invisible="1"/>
+                        <field name="invoice_type" widget="radio"/>
+                        <field name="journal_id"/>
+                    </group>
+                    <footer>
+                        <button name="import_file" string="Importar facturas" class="oe_highlight" type="object"/>
+                        <button special="cancel" string="Cancelar"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="alia_wizard_invoice_excel_import_action" model="ir.actions.act_window">
+            <field name="name">Importar facturas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">invoice.excel.import</field>
+            <field name="view_id" ref="alia_wizard_invoice_excel_import_view"/>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+        <menuitem name="Importar facturas" id="alia_wizard_invoice_excel_import_button" parent="account.menu_finance_payables"
+                  action="alia_wizard_invoice_excel_import_action"/>
+
+    </data>
+</odoo>

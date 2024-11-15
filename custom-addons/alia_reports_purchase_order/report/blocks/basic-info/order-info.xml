@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports - Purchase Order Block: Order Info" id="alia_reports_purchase_order.order_info">
+
+      <div id="alia-reports-purchase-order-order-info" class="alia-reports-block">
+
+        <div class="basic-report-info">
+          <div t-if="o.name" class="highlight-text">
+            <strong>Ref.</strong>
+            <span t-field="o.name"/>
+          </div>
+          <div t-if="o.partner_ref">
+            <strong>Your Ref.</strong>
+            <span t-field="o.partner_ref"/>
+          </div>
+          <div t-if="o.date_order">
+            <strong>Date</strong>
+            <span t-field="o.date_order" t-options="{'widget': 'date'}"/>
+          </div>
+        </div>
+
+      </div>
+
+    </template>
+
+  </data>
+</odoo>

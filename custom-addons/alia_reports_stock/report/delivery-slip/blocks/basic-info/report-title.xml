@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports - Stock Block: Delivery Slip Report Title"
+              id="alia_reports_stock.delivery_slip_report_title">
+
+      <div id="alia-reports-stock-delivery-slip-report-title" class="alia-reports-block">
+
+        <t t-set="state" t-value="o.state"/>
+        <t t-if="state == 'draft'">Draft Delivery Note</t>
+        <t t-if="state in ['assigned', 'confirmed']">Pending Delivery Note</t>
+        <t t-if="state == 'done'">Delivery Note</t>
+        <t t-if="state == 'cancel'">Cancelled Delivery Note</t>
+
+      </div>
+
+    </template>
+
+  </data>
+</odoo>

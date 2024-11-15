@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <template name="Alia Reports - Agreement Block: Company Info" id="alia_reports_agreement.company_info">
+
+      <div id="alia-reports-agreement-company-info" class="alia-reports-block">
+
+        <div class="section-title-small-main">Company Information</div>
+        <div class="parties-content">
+          <div class="parties-address" name="company_address">
+            <address t-field="doc.company_id.partner_id"
+                     t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
+          </div>
+          <div class="parties-represented" name="company_contact" t-if="doc.company_contact_id">
+            Represented by: <span t-field="doc.company_contact_id.name"/>.
+          </div>
+        </div>
+      </div>
+
+    </template>
+  </data>
+</odoo>

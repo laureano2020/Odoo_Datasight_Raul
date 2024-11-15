@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports - Invoice Block: Amount Totals" id="alia_reports_invoice.totals"
+              inherit_id="alia_reports_base.totals" primary="True">
+
+      <xpath expr="//div[contains(@class, 'amount-total')]" position="after">
+
+        <!-- Residual total -->
+        <t t-set="payments_vals" t-value="o._get_payments_vals()"/>
+        <t t-if="len(payments_vals) > 0">
+          <div class="row row-no-gutters amount-residual">
+            <div class="col-6 text-left">Total Owed:</div>
+            <div class="col-6 text-right no-wrap">
+              <strong t-field="o.amount_residual"/>
+            </div>
+          </div>
+        </t>
+
+      </xpath>
+
+    </template>
+
+  </data>
+</odoo>

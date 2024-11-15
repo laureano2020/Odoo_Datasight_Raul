@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2015-22/07/19 Alia Technologies, S.L. - http://www.alialabs.com
+     @author:alia
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+
+    <record id="alia_external_user_read_own_partner" model="ir.rule">
+        <field name="name">Alia External Read Own Partner</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="groups" eval="[(4, ref('alia_group_external_user'))]"/>
+        <field name="domain_force">[('id', '=', user.partner_id.id)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- OJO: si el usuario está en 'Proyecto/Usuario' o en 'Tipos de Usuario/Usuario interno' va a poder acceder a
+    todos los contactos igualmente porque ambos grupos dan persmisos de acceso al modelo res.partner -->
+
+
+</odoo>

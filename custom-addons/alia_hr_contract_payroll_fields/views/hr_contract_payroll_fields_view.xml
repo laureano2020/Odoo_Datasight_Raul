@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2015-22/07/19 Alia Technologies, S.L. - http://www.alialabs.com
+     @author:alia
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <data>
+
+        <record id="alia_hr_contract_payroll_fields_view_form" model="ir.ui.view">
+            <field name="name">alia.hr.contract.payroll.fields.view.form</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='hr_responsible_id']" position="before">
+                    <field name="categoria_convenio" widget="many2one"/>
+                    <field name="grupo_cotizacion"/>
+                </xpath>
+                <xpath expr="//group[@name='salary']" position="inside">
+                    <field name="wage_plus"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="alia_hr_categoria_convenio_action" model="ir.actions.act_window">
+            <field name="name">Categorías de convenio</field>
+            <field name="res_model">hr.categoria.convenio</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <record id="alia_hr_grupo_cotizacion_action" model="ir.actions.act_window">
+            <field name="name">Grupos de cotización</field>
+            <field name="res_model">hr.grupo.cotizacion</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+
+        <menuitem name="Categorías de convenio" id="alia_hr_categoria_convenio_button" parent="hr.menu_config_employee"
+                  action="alia_hr_categoria_convenio_action"/>
+
+        <menuitem name="Grupos de cotización" id="alia_hr_grupo_cotizacion_button" parent="hr.menu_config_employee"
+                  action="alia_hr_grupo_cotizacion_action"/>
+
+    </data>
+</odoo>

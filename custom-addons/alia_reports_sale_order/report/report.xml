@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <!-- [REPORTS] Report Types: PDF AND HTML (For development only) -->
+
+    <record id ="sale_order" model = "ir.actions.report">
+      <field name="name">Presupuesto - Pedido Datasight</field>
+      <field name="model">sale.order</field>
+      <field name="report_type">qweb-pdf</field>
+      <field name="report_name">alia_reports_sale_order.report_sale_order_template</field>
+      <field name="report_file">alia_reports_sale_order.report_sale_order_template</field>
+      <field name="binding_model_id" ref="sale.model_sale_order"/>
+      <field name="binding_type">report</field>
+    </record>
+
+    <record id ="sale_order_html" model = "ir.actions.report">
+      <field name="name">Presupuesto - Pedido Datasight (Preview)</field>
+      <field name="model">sale.order</field>
+      <field name="report_type">qweb-html</field>
+      <field name="report_name">alia_reports_sale_order.report_sale_order_template</field>
+      <field name="report_file">alia_reports_sale_order.report_sale_order_template</field>
+      <field name="binding_model_id" ref="sale.model_sale_order"/>
+      <field name="binding_type">report</field>
+    </record>
+
+    <record id ="sale_order_proforma_html" model = "ir.actions.report">
+      <field name="name">Proforma Datasight (Preview)</field>
+      <field name="model">sale.order</field>
+      <field name="report_type">qweb-html</field>
+      <field name="report_name">alia_reports_sale_order.report_sale_order_proforma_template</field>
+      <field name="report_file">alia_reports_sale_order.report_sale_order_proforma_template</field>
+      <field name="binding_model_id" ref="sale.model_sale_order"/>
+      <field name="binding_type">report</field>
+    </record>
+
+    <record id="sale_order_proforma_pdf" model="ir.actions.report">
+      <field name="name">Proforma Datasight</field>
+      <field name="model">sale.order</field>
+      <field name="report_type">qweb-pdf</field>
+      <field name="report_name">alia_reports_sale_order.report_sale_order_proforma_template</field>
+      <field name="report_file">alia_reports_sale_order.report_sale_order_proforma_template</field>
+      <field name="binding_model_id" ref="sale.model_sale_order"/>
+      <field name="binding_type">report</field>
+    </record>
+
+
+
+  </data>
+</odoo>

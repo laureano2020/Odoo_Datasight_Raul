@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <record id="sale_order_add_print_button_inherit" model="ir.ui.view">
+            <field name="name">sale.order.add.print.button.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/div//button" position="before">
+                    <button name="print_sale_order_report" type="object" class="oe_stat_button" icon="fa-print icon">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Print</span>
+                            </div>
+                    </button>
+                    <button name="print_sale_order_proforma_report" type="object" class="oe_stat_button" icon="fa-print icon">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Print Proforma</span>
+                            </div>
+                    </button>
+                </xpath>
+                <notebook position="inside">
+                  <page name="print_options" string="Opciones de Impresión">
+                    <group>
+                      <group>
+                        <field name="print_as_quotation" ttrs="{'invisible': [('state', 'in', ['draft'])]}"/>
+                      </group>
+                      <group>
+                        <field name="print_without_units_and_price_unit" ttrs="{'invisible': [('state', 'in', ['draft'])]}"/>
+                      </group>
+                    </group>
+                  </page>
+                </notebook>
+            </field>
+        </record>
+
+    </data>
+</odoo>

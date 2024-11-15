@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports - Base Block: Header Company Info" id="alia_reports_base.header_company_info">
+
+      <div id="alia-reports-base-header-company-info" class="alia-reports-block">
+
+        <div t-if="company.partner_id.name" class="company-name font-weight-bold" t-field="company.partner_id.name"/>
+        <div t-if="company.vat" t-esc="company.vat"/>
+        <div t-if="company.street or company.street2">
+          <span t-if="company.street" t-esc="company.street"/>
+          <span t-if="company.street2" t-esc="company.street2"/>
+        </div>
+        <div>
+          <span t-if="company.zip" t-esc="company.zip"/>
+          <span t-if="company.city" t-esc="company.city"/>
+          <!--<span t-if="company.state_id" t-esc="company.state_id.display_name"></span>-->
+          <span t-if="company.country_id">(<span t-esc="company.country_id.display_name"></span>)
+          </span>
+        </div>
+        <div t-if="company.phone" t-esc="company.phone"/>
+        <div t-elif="company.email" t-esc="company.email"></div>
+        <div t-elif="company.website" t-esc="company.website"></div>
+      </div>
+
+    </template>
+
+  </data>
+</odoo>

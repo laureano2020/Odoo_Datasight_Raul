@@ -1,0 +1,53 @@
+/*************************************************************************/
+/** Block: Total Amount
+/*************************************************************************/
+
+##{$module-name-prefix-base}-totals {
+
+  .report-amount-wrapper {
+    @extend %basic-report-info-main;
+    margin-top: 5px;
+
+    > .row {
+      font-size: 1rem;
+
+      > :first-child {
+        &:after {
+          content: ":";
+        }
+      }
+
+      strong {
+        float: none;
+        &:after {
+          content: "";
+        }
+      }
+
+      > :first-child {
+        padding-top: 0.2em;
+        font-size: 0.8em;
+      }
+
+      // Untaxed
+      &.amount-untaxed {
+        > :first-child {
+          @include make-col-exact(45%);
+        }
+        > :last-child {
+          @include make-col-exact(55%);
+        }
+      }
+
+      // Total
+      &.amount-total {
+        font-size: 1.4rem;
+        color: color_text();
+        > :first-child {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+}

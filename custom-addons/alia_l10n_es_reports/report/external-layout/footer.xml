@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+  <template id="alia_l10n_es_reports.footer" name="Alia Reports Spain - Footer"
+            inherit_id="alia_reports_base.footer">
+
+    <xpath expr="//div[@class='footer-second']" position="replace">
+
+      <div class="footer-second">
+
+        <t t-translation="off">
+
+          <div t-if="company.partner_id" class="footer-reg-mercantil">
+            <span>Inscrita en el Registro Mercantil de
+              <span t-field="company.partner_id.es_registro_mercantil"/>, Folio
+              <span t-field="company.partner_id.es_folio"/>, Libro
+              <span t-field="company.partner_id.es_libro"/>, Inscripción
+              <span t-field="company.partner_id.es_seccion"/>, Hoja
+              <span t-field="company.partner_id.es_hoja"/> - C.I.F.
+              <span t-field="company.vat"/>
+            </span>
+          </div>
+
+          <div class="footer-legal-notice">
+            <t t-if="company.report_footer">
+              <div t-field="company.report_footer"/>
+            </t>
+            <t t-else="">
+              De conformidad con lo dispuesto en el Reglamento (UE) 2016/679 de 27
+              de abril de 2016 (GDPR), le informamos que los datos personales y dirección de correo electrónico,
+              recabados
+              del propio interesado o de fuentes públicas, serán tratados bajo la responsabilidad de
+              <span t-field="company.name"/>
+              para el envío de comunicaciones sobre nuestros productos y servicios y se conservarán mientras exista un
+              interés mutuo para ello. Los datos no serán comunicados a terceros, salvo obligación legal. Le informamos
+              que puede ejercer los derechos de acceso, rectificación, portabilidad y supresión de sus datos y los de
+              limitación y oposición a su tratamiento dirigiéndose a
+              ,<span t-field="company.street"/>,
+              <t t-if="company.zip_id">
+                <span t-field="company.zip_id.display_name"/>
+              </t>
+              . Si considera que el tratamiento no se ajusta a la normativa vigente, podrá presentar una reclamación
+              ante
+              la autoridad de control en www.agpd.es.
+            </t>
+          </div>
+
+        </t>
+
+      </div>
+
+    </xpath>
+
+  </template>
+
+</odoo>

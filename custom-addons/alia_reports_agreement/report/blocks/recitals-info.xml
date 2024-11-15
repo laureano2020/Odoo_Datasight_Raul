@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <template name="Alia Reports - Agreement Block: Recitals Info" id="alia_reports_agreement.recitals_info">
+
+      <div id="alia-reports-agreement-recitals-info" class="alia-reports-block">
+
+        <!--Recitals List-->
+        <t t-call="alia_reports_agreement.recitals_list" t-lang="lang"/>
+
+        <!--Sections List-->
+        <t t-call="alia_reports_agreement.sections_list" t-lang="lang"/>
+
+      </div>
+
+    </template>
+  </data>
+</odoo>

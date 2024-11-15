@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <template name="Alia Reports - Agreement Block: Recitals List" id="alia_reports_agreement.recitals_list">
+
+      <div id="alia-reports-agreement-recitals-list" class="alia-reports-block" t-if="doc.recital_ids">
+
+        <div class="section-title">Recitals:</div>
+
+        <ol class="recitals-list">
+          <li t-foreach="doc.recital_ids" t-as="r">
+            <t t-if="r.title">
+              <div class="list-item-title" t-field="r.title"/>
+            </t>
+            <p t-field="r.dynamic_content"/>
+          </li>
+        </ol>
+
+      </div>
+
+    </template>
+  </data>
+</odoo>

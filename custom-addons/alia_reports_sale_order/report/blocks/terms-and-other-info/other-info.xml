@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports - Sale Order Block: Other Info" id="alia_reports_sale_order.other_info">
+
+      <div id="alia-reports-sale-order-other-info" class="alia-reports-block">
+
+        <div class="other-report-info-main">
+
+          <div t-if="doc.payment_term_id" name="payment_term">
+            <strong>Términos de pago</strong>
+            <span t-field="doc.payment_term_id"/>
+          </div>
+          <div t-if="doc.payment_mode_id" name="payment_mode">
+            <strong>Modo de pago</strong>
+            <span t-field="doc.payment_mode_id"/>
+          </div>
+
+          <div t-if="doc.validity_date and doc.state in ['draft', 'sent']">
+            <strong>Fecha de expiración</strong>
+            <span t-field="doc.validity_date"/>
+          </div>
+
+        </div>
+
+      </div>
+
+    </template>
+
+  </data>
+</odoo>

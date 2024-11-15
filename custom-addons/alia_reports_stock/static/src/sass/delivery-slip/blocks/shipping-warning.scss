@@ -1,0 +1,13 @@
+/*************************************************************************/
+/** Block: Delivery Slip / Shipping Warning
+/*************************************************************************/
+
+##{$module-name-prefix-stock-delivery-slip}-shipping-warning {
+  color: color-text(light);
+
+  .section-title {
+    &:before {
+      border-top: none;
+    }
+  }
+}

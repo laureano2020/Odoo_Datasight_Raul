@@ -1,0 +1,33 @@
+/*************************************************************************/
+/** Block: Client Info
+/*************************************************************************/
+
+##{$module-name-prefix-base}-client-info {
+
+  .report-client-logo {
+    padding-right: $alia-reports-base-gutter-base * 0.66;
+    display: inline-block;
+    vertical-align: top;
+
+    img {
+      max-width: $alia-reports-base-client-info-logo-size;
+      border: $separator-border;
+    }
+  }
+
+  .report-client-info-wrapper {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 2px;
+
+    .report-client-name {
+      font-size: 1.2rem;
+      margin-bottom: 3px;
+    }
+
+    .report-client-location {
+      line-height: 1.5em;
+    }
+  }
+
+}

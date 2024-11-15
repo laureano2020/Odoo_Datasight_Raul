@@ -1,0 +1,91 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* alia_reports_stock
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-14 12:18+0000\n"
+"PO-Revision-Date: 2021-05-14 12:18+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: alia_reports_stock
+#: model_terms:ir.ui.view,arch_db:alia_reports_stock.delivery_slip_order_table
+#: model_terms:ir.ui.view,arch_db:alia_reports_stock.delivery_slip_report_info
+msgid "<strong>Date</strong>"
+msgstr "<strong>Fecha</strong>"
+
+#. module: alia_reports_stock
+#: model_terms:ir.ui.view,arch_db:alia_reports_stock.delivery_slip_order_table
+#: model_terms:ir.ui.view,arch_db:alia_reports_stock.delivery_slip_report_info
+msgid "<strong>Order</strong>"
+msgstr "<strong>Orden</strong>"
+
+#. module: alia_reports_stock
+#: model_terms:ir.ui.view,arch_db:alia_reports_stock.delivery_slip_concepts_done_table
+#: model_terms:ir.ui.view,arch_db:alia_reports_stock.delivery_slip_concepts_table
+msgid "<strong>Product</strong>"
+msgstr "<strong>Producto</strong>"
+
+#. module: alia_reports_stock
+#: model_terms:ir.ui.view,arch_db:alia_reports_stock.delivery_slip_concepts_done_table
+#: model_terms:ir.ui.view,arch_db:alia_reports_stock.delivery_slip_concepts_table
+msgid "<strong>Quantity</strong>"
+msgstr "<strong>Cantidad</strong>"
+
+#. module: alia_reports_stock
+#: model_terms:ir.ui.view,arch_db:alia_reports_stock.delivery_slip_report_info
+msgid "<strong>Ref.</strong>"
+msgstr ""
+
+#. module: alia_reports_stock
+#: model_terms:ir.ui.view,arch_db:alia_reports_stock.delivery_slip_shipping_warning
+msgid "All items couldn't be shipped, the remaining ones will be shipped as soon as they become available."
+msgstr "Todos los artículos no pudieron ser enviados, los restantes serán enviados tan pronto como estén disponibles."
+
+#. module: alia_reports_stock
+#: model_terms:ir.ui.view,arch_db:alia_reports_stock.delivery_slip_report_title
+msgid "Cancelled Delivery Note"
+msgstr "Albarán Cancelado"
+
+#. module: alia_reports_stock
+#: model_terms:ir.ui.view,arch_db:alia_reports_stock.delivery_slip_report_title
+msgid "Delivery Note"
+msgstr "Albarán"
+
+#. module: alia_reports_stock
+#: model_terms:ir.ui.view,arch_db:alia_reports_stock.delivery_slip_report_title
+msgid "Draft Delivery Note"
+msgstr "Albarán en Borrador"
+
+#. module: alia_reports_stock
+#: model_terms:ir.ui.view,arch_db:alia_reports_stock.delivery_slip_concepts_done_table
+msgid "Lot/Serial Number"
+msgstr "Lote/Nº de serie"
+
+#. module: alia_reports_stock
+#: model_terms:ir.ui.view,arch_db:alia_reports_stock.delivery_slip_report_title
+msgid "Pending Delivery Note"
+msgstr "Albarán Pendiente"
+
+#. module: alia_reports_stock
+#: model:ir.actions.report,name:alia_reports_stock.delivery_slip
+msgid "Stock Delivery Slip ALIA"
+msgstr "Albarán de Entrega ALIA"
+
+#. module: alia_reports_stock
+#: model:ir.actions.report,name:alia_reports_stock.delivery_slip_html
+msgid "Stock Delivery Slip ALIA (Preview)"
+msgstr "Albarán de Entrega ALIA (Vista Previa)"
+
+#. module: alia_reports_stock
+#: model_terms:ir.ui.view,arch_db:alia_reports_stock.delivery_slip_shipping_warning
+msgid "Warning"
+msgstr "Aviso"
+

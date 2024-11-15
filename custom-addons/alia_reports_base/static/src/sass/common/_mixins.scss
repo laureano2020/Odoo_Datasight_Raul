@@ -1,0 +1,606 @@
+// ===========================================================================================
+// UTILS: MIXINS
+// ===========================================================================================
+
+// Pseudo class after.
+@mixin after {
+  &:after {
+    content: "";
+    @content;
+  }
+}
+
+// Pseudo class before.
+@mixin before {
+  &:before {
+    content: "";
+    @content;
+  }
+}
+
+// Vendor prefixes
+@mixin prefix($property, $value, $vendors: webkit moz ms o, $default: true) {
+  @if $vendors {
+    @each $vendor in $vendors {
+      #{"-" + $vendor + "-" + $property}: #{$value};
+    }
+  }
+  @if $default {
+    #{$property}: #{$value};
+  }
+}
+
+// -------------------------------------
+// Shapes
+// -------------------------------------
+
+// Create a Box.
+// - $width: Width of the box
+// - $height: Height of the box
+@mixin square($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// Create a responsive square container.
+// - $percentage: Size of the container relative to its parent
+// - $offset: adjustment for width in px
+@mixin square-responsive($percentage: 100%, $offset: 0px) {
+  display: inline-block;
+  width: calc(#{$percentage} - #{$offset});
+  padding-bottom: calc(#{$percentage} - #{$offset});
+  margin-left: $offset / 2;
+}
+
+// Create a circle shape (Solid or empty)
+// - $size: Circle size
+// - $border-color: Color of the circle border.
+// - $solid: Defines if circle shape has a background color or it's transparent.
+// - $solid-color: Background color if $solid parameter is true
+@mixin circle($size, $border-color: #000, $solid: false, $solid-color: $border-color) {
+  display: inline-block;
+  width: $size;
+  height: $size;
+  border-radius: 100%;
+  @if $border-color {
+    border: 1px solid $border-color;
+  }
+  @if $solid {
+    background-color: $solid-color;
+  }
+}
+
+// Include triangle within a pseudo element and add positioning properties (ie. top, left)
+// - $direction: up, down, left, right
+// - $size: Triangle size
+// - $color: Triangle color.
+// - $size-ratio: Relation between width and height.
+@mixin triangle($direction, $size: 6px, $color: #222, $size-ratio: 1) {
+  content: '';
+  display: block;
+  height: 0;
+  width: 0;
+  @if ($direction == 'up') {
+    border-bottom: $size*$size-ratio solid $color;
+    border-left: 1/2*$size solid transparent;
+    border-right: 1/2*$size solid transparent;
+  } @else if ($direction == 'down') {
+    border-top: $size*$size-ratio solid $color;
+    border-left: 1/2*$size solid transparent;
+    border-right: 1/2*$size solid transparent;
+  } @else if ($direction == 'left') {
+    border-top: 1/2*$size solid transparent;
+    border-bottom: 1/2*$size solid transparent;
+    border-right: $size*$size-ratio solid $color;
+  } @else if ($direction == 'right') {
+    border-top: 1/2*$size solid transparent;
+    border-bottom: 1/2*$size solid transparent;
+    border-left: $size*$size-ratio solid $color;
+  }
+}
+
+// Create a pseudo class block over another block to apply shading or a color tint.
+// - $bg-color: Color for the overlay.
+// - $opacity: Opacity for the overlay
+// - $z-index: z-index for the overlay.
+@mixin box-overlay($bg-color: black, $opacity: 0.3, $z-index:1) {
+  position: relative;
+  &:before {
+    content: "";
+    @include absolute($top: 0, $right: 0, $bottom: 0, $left: 0, $z-index: $z-index);
+    background-color: rgba($bg-color, $opacity);
+  }
+}
+
+// -------------------------------------
+// Boxes position and contents.
+// -------------------------------------
+
+// Truncate box text using ellipsis effect.
+// - $overflow: clip, ellipsis, or a string
+@mixin truncate-text($overflow: ellipsis) {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: $overflow;
+}
+
+// Positioning an element.
+// - $position: CSS position value
+// - $args: Args of the positioning (top, right, left, bottom)
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null, $z-index: 2) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  z-index: $z-index;
+}
+
+// -- Positioning absolute.
+@mixin absolute($args...) {
+  @include position(absolute, $args...);
+}
+
+// -- Positioning fixed.
+@mixin fixed($args...) {
+  @include position(fixed, $args...);
+}
+
+// -- Positioning relative.
+@mixin relative($args...) {
+  @include position(relative, $args...);
+}
+
+// Center element horizontally.
+@mixin absolute-centered() {
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+// Center children vertically.
+// $horizontal-align: See flexbox's 'justify-content' property.
+@mixin vertically-centered-container($horizontal-align: false) {
+  display: flex;
+  align-items: center;
+  @if ($horizontal-align != false) {
+    justify-content: $horizontal-align;
+  }
+}
+
+// Center a block
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Center vertically a block.
+@mixin center-vertically {
+  position: absolute;
+  top: 50%;
+  @include prefix(transform, translateY(-50%), 'webkit' 'ms');
+}
+
+// Center horizontally a block.
+@mixin center-horizontally {
+  position: absolute;
+  left: 50%;
+  @include prefix(transform, translateX(-50%), 'webkit' 'ms');
+}
+
+@mixin center-vertically-and-horizontally {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  @include prefix(transform, translate(-50%, -50%), 'webkit' 'ms');
+}
+
+// Clear an element.
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// -------------------------------------
+// Images
+// -------------------------------------
+
+// Background image properties.
+// - $path: Path of the image relative to final CSS.
+// - $position: background-position properties.
+// - $repeat: background-repeat property.
+// - $size: background-size property.
+@mixin bg-image($path, $position: 0 0, $repeat: no-repeat, $size: auto) {
+  background-image: url('' + $path);
+  background-position: $position;
+  background-repeat: $repeat;
+  background-size: $size;
+}
+
+// Crop image with its container. Apply to container.
+//- $width: Width pixels
+//- $height: Height pixels
+@mixin crop-img-container($width:150px, $height: $width) {
+  @include vertically-centered-container(center);
+  overflow: hidden;
+  height: $height;
+  width: $width;
+}
+
+// Desaturate image.
+@mixin grayscale($percentage: 100%) {
+  filter: grayscale($percentage);
+  -webkit-filter: grayscale($percentage);
+  -moz-filter: grayscale($percentage);
+  -ms-filter: grayscale($percentage);
+  -o-filter: grayscale($percentage);
+}
+
+// Apply drop-shadow.
+// - $drop-shadow: Drop shadow values.
+@mixin drop-shadow($drop-shadow: 2px 2px 5px rgba(0,0,0,0.3)) {
+  filter: drop-shadow($drop-shadow);
+  -webkit-filter: drop-shadow($drop-shadow);
+  -ms-filter: drop-shadow($drop-shadow);
+}
+
+// Tint White
+@mixin tint-white() {
+  filter: brightness(0) invert(1);
+  -webkit-filter: brightness(0) invert(1);
+  -ms-filter: brightness(0) invert(1);
+}
+
+// -------------------------------------
+// Dividers
+// -------------------------------------
+
+// Create a custom divider after, before or on both positions.
+// - $position: Divider position: after, before or both positions.
+// - $width: Divider width
+// - $border: Border style for the divider
+// - $gutter: Gutter for the container. the divider will be setted in the middle.
+@mixin divider-custom($position: both, $width: 100%, $border: 1px solid #DDDDDD, $gutter: 2rem) {
+  position: relative;
+  &:before, &:after {
+    border-top: $border;
+    width: $width;
+  }
+  @if ($position == before or $position == both) {
+    padding-top: $gutter;
+    &:before {
+      content: "";
+      @include absolute($top: $gutter/2, $left: 0);
+    }
+  }
+  @if ($position == after or $position == both) {
+    padding-bottom: $gutter;
+    &:after {
+      content: "";
+      @include absolute($bottom: $gutter/2, $left: 0);
+    }
+  }
+}
+
+// -------------------------------------
+// Components
+// -------------------------------------
+
+// Pure CSS Tooltip
+// - $content: Tooltip content. By default uses 'data-tooltip' attribute content
+// - $direction: Position of the tooltip: top, bottom
+@mixin hui-tooltip($content: attr(data-tooltip), $direction: top) {
+  position: relative;
+  &:before, &:after {
+    display: none;
+    z-index: 98;
+  }
+  &:hover {
+    &:after { // for text bubble
+      content: $content;
+      display: block;
+      position: absolute;
+      height: 12px; // (makes total height including padding 22px)
+      padding: 6px;
+      font-size: 12px;
+      white-space: nowrap;
+      color: #fff;
+      @include text-shadow(1px 1px #000);
+      background-color: #222;
+    }
+
+    @if ($direction == 'top') {
+      &:before {
+        @include triangle(down, 6px, #222);
+        top: -6px;
+        margin-top: 0;
+        left: 47%;
+      }
+      &:after {
+        top: -28px;
+        left: 47%;
+        margin-left: -20px;
+      }
+    } @else if ($direction == 'bottom') {
+      &:before {
+        @include triangle(up, 6px, #222);
+        top: auto;
+        margin-top: 0;
+        bottom: -6px;
+        left: 47%;
+      }
+      &:after {
+        bottom: -28px;
+        left: 47%;
+        margin-left: -20px;
+      }
+    }
+  }
+}
+
+// -------------------------------------
+// Margin and Padding
+// -------------------------------------
+
+// Set Margin and Padding generic classes.
+$margin-step: 5 !default;
+$padding-step: 5 !default;
+$prop-num-steps: 10 !default;
+
+@mixin prop-class-list($prop, $step) {
+  $prop-letter: str-slice($prop, 0, 1);
+  $id-list: t b l r a;
+  $txt-list: "-top" "-bottom" "-left" "-right" "";
+  @each $id in $id-list {
+    $index: index($id-list, $id);
+    $txt: nth($txt-list, $index);
+    @for $counter from 0 through $prop-num-steps {
+      $amount: $step * $counter;
+      .#{$prop-letter}-#{$id}-#{$amount} {
+        #{$prop}#{$txt}: #{$amount}px !important;
+      }
+    }
+  }
+}
+
+// -------------------------------------
+// Gradients
+// -------------------------------------
+
+/// Mixin printing a linear-gradient
+/// as well as a plain color fallback
+/// and the `-webkit-` prefixed declaration
+/// @access public
+/// @param {Keyword | Angle} $direction - Linear gradient direction
+/// @param {Arglist} $color-stops - List of color-stops composing the gradient
+@mixin linear-gradient($direction, $color-stops...) {
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}
+
+// -------------------------------------
+// Stripes BG
+// -------------------------------------
+
+//========== striped-bg ============//
+
+@mixin striped-bg($stripe-color: rgb(255, 0, 0),  $stripes-num: 4,$direction: 45deg) {
+  $transparent: rgba(0, 0, 0, 0);
+
+  $stripes-num: $stripes-num * 2;
+  $stripe-width: 100% /$stripes-num;
+  $gradient: ();
+
+  @for $i from 1 through ($stripes-num - 1) {
+    $item: $stripe-color;
+    $dump: ();
+
+    @if $i % 2  == 0 {
+      $dump: $item $stripe-width * ($i), $transparent $stripe-width * $i;
+    } @else {
+      $dump: $transparent $stripe-width * $i, $item $stripe-width * ($i);
+    }
+    $gradient: join($gradient, $dump, comma);
+  }
+  background: linear-gradient($direction, $gradient);
+}
+
+//========== simple-stripes============//
+
+@mixin simple-stripes($color: rgb(255, 0, 0), $size: 40px, $mirrored: false) {
+  $angle: 45deg;
+  @if $mirrored {
+    $angle: $angle * -1
+  }
+  @if $size % 2 != 0 {
+    $size: $size + 1px;
+  }
+  $intensity: 2;
+  @include striped-bg($color, $intensity, $angle);
+  background-size: $size $size;
+}
+
+// -------------------------------------
+// Forms
+// -------------------------------------
+
+// Set placeholder basic style for an input.
+// - $color: color for placeholder text.
+// - $size: font-size for placeholder text.
+// - $weight: font-weight for placeholder text.
+// - $family: font-family for placeholder text.
+@mixin placeholder($color: inherit, $size:inherit, $weight:inherit, $family:inherit) {
+  &::-webkit-input-placeholder { /* WebKit browsers */
+    color: $color;
+    font-weight: $weight;
+    font-size: $size;
+    font-family: $family;
+  }
+  &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: $color;
+    font-weight: $weight;
+    font-size: $size;
+    font-family: $family;
+  }
+  &::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: $color;
+    font-weight: $weight;
+    font-size: $size;
+    font-family: $family;
+  }
+  &:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: $color;
+    font-weight: $weight;
+    font-size: $size;
+    font-family: $family;
+  }
+}
+
+// Set any placeholder style for an input.
+// Usage:
+// @include placeholder-flexible {
+//    any css
+// }
+@mixin placeholder-flexible {
+  &::-webkit-input-placeholder {
+    @content
+  }
+  &:-moz-placeholder {
+    @content
+  }
+  &::-moz-placeholder {
+    @content
+  }
+  &:-ms-input-placeholder {
+    @content
+  }
+}
+
+// -------------------------------------
+// Fonts
+// -------------------------------------
+
+// Create font-face definition.
+// - $name: Font face name
+// - $path: Path to font files
+// - $weight: 100, ... ,900. bold, light, etc
+// - $style: italic, normal, ...
+// - $exts: Font file formats
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg, $size: false) {
+  $src: null;
+  $extmods: (
+    eot: "?",
+    svg: "#" + str-replace($name, " ", "_")
+  );
+  $formats: (
+    otf: "opentype",
+    ttf: "truetype"
+  );
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url('' + quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+    @if $size {
+      font-size: $size;
+    }
+  }
+}
+
+// Apply font icon styles.
+// - $family: Font icon family reference
+// - $content: Icon value in HEX format
+// - $pseudo-class: before | after
+// - $size: Icon size
+// - $color: Icon color
+// - $vertical-align: Vertical alignment
+@mixin font-icon($family, $content: "", $size: 1em, $color: inherit, $vertical-align: initial, $pseudo: "before") {
+  &:#{$pseudo} {
+    content: $content;
+    color: $color;
+    font-size: $size;
+    vertical-align: $vertical-align;
+    position: relative;
+    display: inline-block;
+    font-family: $family;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+// Stroke font-character
+// $stroke: Stroke width
+// $color: Stroke color
+@mixin font-stroke($width, $color) {
+  $shadow: ();
+  @for $i from -$width through $width {
+    $shadow: append($shadow, #{$width}px #{$i}px $color, comma);
+    $shadow: append($shadow, #{-$width}px #{$i}px $color, comma);
+    $shadow: append($shadow, #{$i}px #{$width}px $color, comma);
+    $shadow: append($shadow, #{$i}px #{-$width}px $color, comma);
+  }
+  text-shadow: $shadow;
+}
+
+// -------------------------------------
+// Grid utilities
+// -------------------------------------
+
+// Clear elements every n childs.
+// $n: Number of childs before clear.
+// $default: Default clear value.
+@mixin clear-every-n-child($n, $default: inherit) {
+  &:nth-child(n) {
+    clear: $default;
+  }
+  &:nth-child(#{$n}n+1) {
+    clear: left;
+  }
+}
+
+// Apply styles to the last elements in a dynamic (unknown number of elements) regular grid (all rows same length).
+// - $per_row: Number of elements/cells per row of the grid.
+@mixin apply-to-last-elements($per_row: 4) {
+  @for $i from 1 through $per_row {
+    @for $j from 1 through $per_row - $i + 1 {
+      &:nth-child(#{$per_row}n+#{$i}):nth-last-child(#{$j}) {
+        @content
+      }
+    }
+  }
+}
+
+// -------------------------------------
+// Child Selector utilities
+// -------------------------------------
+
+// Apply styles to first n elements
+// $n: Number of first-items to apply the styles.
+@mixin apply-to-first-n-child($n) {
+  &:nth-child(-n + #{$n}) {
+    @content
+  }
+}
+
+// Apply styles every n elements
+// $n: Item counter for every style application loop.
+// $initial-item: First item for the loop beginning. (0 value to avoid first loop)
+@mixin apply-every-n-child($n, $initial-item: 1) {
+  &:nth-child(#{$n}n + #{$initial-item}) {
+    @content
+  }
+}

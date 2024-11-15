@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <template name="Alia Reports - Agreement Block: Basic Info" id="alia_reports_agreement.basic_info">
+
+      <div id="alia-reports-agreement-basic-info" class="alia-reports-block">
+
+        <!-- Agreement Title -->
+        <div class="row no-gutters report-title">
+          <div class="col-12">
+            <span t-field="doc.name"/>
+          </div>
+        </div>
+
+        <!-- Agreement Description text -->
+        <div class="report-description" name="description">
+          <span t-field="doc.dynamic_description"/>
+        </div>
+
+      </div>
+
+    </template>
+  </data>
+</odoo>

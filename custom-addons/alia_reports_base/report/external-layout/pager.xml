@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports - Base Pager" id="alia_reports_base.pager">
+
+      <div id="alia-reports-base-pager" class="pager" t-if="report_type == 'pdf'">
+        <span>Page</span>
+        <span class="page"/>
+        of
+        <span class="topage"/>
+      </div>
+
+    </template>
+
+  </data>
+</odoo>

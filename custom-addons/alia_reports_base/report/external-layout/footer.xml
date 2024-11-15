@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports - Base Footer" id="alia_reports_base.footer">
+
+        <div id="alia-reports-base-footer" class="footer o_background_footer">
+
+          <div class="row footer-first">
+
+            <div class="col-6">
+              <t t-if="o.display_name">
+                <span class="footer-report-number" t-field="o.display_name"/>
+              </t>
+            </div>
+
+            <div class="col-6">
+              <!-- Block: Pager -->
+              <t t-call="alia_reports_base.pager"/>
+            </div>
+
+          </div>
+
+          <div class="footer-second">
+
+            <!-- Block: Footer Contact Info -->
+            <t t-call="alia_reports_base.footer_contact_info"/>
+
+            <!-- Block: Footer Company Info -->
+            <t t-call="alia_reports_base.footer_company_info"/>
+
+          </div>
+
+        </div>
+
+    </template>
+
+  </data>
+</odoo>

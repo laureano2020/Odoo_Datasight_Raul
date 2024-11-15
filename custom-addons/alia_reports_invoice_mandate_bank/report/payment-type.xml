@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <template id="payment_type" inherit_id="alia_reports_invoice.payment_type">
+        <xpath expr="//t[@t-foreach='doc.partner_banks_to_show()']" position="after">
+            <t t-if="doc.mandate_id" t-set="mandate_info" t-value="doc.get_mandate_bank_info()"/>
+            <div t-if="doc.mandate_id" class="col-3">
+                <strong>Mandate Bank:</strong>
+            </div>
+            <div t-if="doc.mandate_id" class="col-9 text-right">
+                <t t-esc="mandate_info"/>
+            </div>
+
+        </xpath>
+
+        <xpath expr="//div[@id='alia-reports-invoice-payment-type']/t[2]" position="replace">
+            <t t-if="doc.payment_mode_id and doc.payment_mode_id.show_bank_account != 'no' and doc.partner_banks_to_show()">
+                <div class="row no-gutters">
+                    <t t-foreach="doc.partner_banks_to_show()" t-as="partner_bank">
+                        <div t-if="not doc.mandate_id" class="col-2">
+                            <span>IBAN:</span>
+                        </div>
+                        <div t-if="not doc.mandate_id" class="col-10 text-right">
+                            <t t-esc="partner_bank.acc_number"/>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </xpath>
+
+    </template>
+
+
+</odoo>

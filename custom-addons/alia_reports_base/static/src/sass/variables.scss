@@ -1,0 +1,54 @@
+/*************************************************************************/
+/**                                                                     **/
+/**    Variables definition                                             **/
+/**    Brais Saco - Alia Technologies                                   **/
+/**                                                                     **/
+/*************************************************************************/
+
+// Please, define using: $[module-name]-[variable-name] to avoid variable scope problems.
+
+$module-name-prefix-base: 'alia-reports-base';
+
+// Paths.
+// -------------
+$o-assets-path: '/static/src';
+$o-assets-path-sass: $o-assets-path + '/sass';
+$o-assets-path-img: $o-assets-path + '/img';
+$o-assets-path-font: $o-assets-path + '/font';
+
+// Colors.
+// -------------
+$alia-reports-base-color-main: #6b686a !default;
+$alia-reports-base-color-second: #827d81 !default;
+$alia-reports-base-color-contrast: #FFFFFF !default;
+$alia-reports-base-color-bw: #777777 !default;
+
+// Font.
+// -------------
+$alia-reports-base-font-family-main: 'Nunito Sans', sans-serif !default;
+$alia-reports-base-font-size-main: 15px !default;
+$alia-reports-base-font-color-main: #333333 !default;
+$alia-reports-base-font-weight-main: 400 !default;
+
+// Measures
+// -------------
+$alia-reports-base-gutter-base: 15px !default;
+
+// Borders
+// -------------
+$alia-reports-base-separator-border: 1px solid #DDDDDD !default;
+
+// External Layout
+// -------------
+$alia-reports-base-header-height: 125px !default;
+$alia-reports-base-contents-lateral-gutter: $alia-reports-base-gutter-base * 2 !default;
+
+// Tables
+// -------------
+$alia-reports-base-table-bg-color-main: #EEEEEE !default;
+$alia-reports-base-table-bg-color-light: #F4F4F4 !default;
+$alia-reports-base-table-bg-color-highlight: #D0D0D0 !default;
+
+// Block: Client Info.
+// -------------
+$alia-reports-base-client-info-logo-size: 80px !default;

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <template name="Alia Reports - Invoice Block: Payments List" id="alia_reports_invoice.payments">
+
+      <t t-set="payments_vals" t-value="o._get_payments_vals()"/>
+      <t t-if="payments_vals">
+        <div id="alia-reports-invoice-payments" class="alia-reports-block">
+          <div class="section-title-small-main">
+            <span>Payments Done:</span>
+          </div>
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th class="text-left">Payment Date</th>
+                <th class="text-right">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <t t-foreach="payments_vals" t-as="payment_vals">
+                <tr>
+                  <td class="text-left report-numeric">
+                    <span>Paid on
+                      <t t-esc="payment_vals['date']"
+                         t-options='{"widget": "date"}'/>
+                    </span>
+
+                  </td>
+                  <td class="text-right report-numeric">
+                    <span t-esc="payment_vals['amount']"
+                          t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                  </td>
+                </tr>
+              </t>
+            </tbody>
+          </table>
+        </div>
+      </t>
+
+    </template>
+  </data>
+</odoo>

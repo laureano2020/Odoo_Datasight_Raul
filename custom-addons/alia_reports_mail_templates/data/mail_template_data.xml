@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record model="mail.template" id="sale.mail_template_sale_confirmation">
+            <field name="report_template" ref="alia_reports_sale_order.sale_order"/>
+        </record>
+        <record model="mail.template" id="account.email_template_edi_invoice">
+            <field name="report_template" ref="alia_reports_invoice.invoice_order"/>
+        </record>
+        <record model="mail.template" id="	purchase.email_template_edi_purchase">
+            <field name="report_template" ref="alia_reports_purchase_order.purchase_order"/>
+        </record>
+
+<!--        Se van agregando aquí los nuevos reportes para las plantillas-->
+    </data>
+</odoo>

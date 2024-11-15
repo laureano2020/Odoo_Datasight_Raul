@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2015-22/07/19 Alia Technologies, S.L. - http://www.alialabs.com
+     @author:alia
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <data>
+
+        <!-- vista para mostrar el partner en el informe de gastos -->
+        <record id="alia_hr_expense_sheet_partner_view_form" model="ir.ui.view">
+            <field name="name">alia.hr.expense.sheet.partner.view.form</field>
+            <field name="model">hr.expense.sheet</field>
+            <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_form"/>
+            <field name="arch" type="xml">
+                <field name="department_id" position="after">
+                    <field name="partner_id"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

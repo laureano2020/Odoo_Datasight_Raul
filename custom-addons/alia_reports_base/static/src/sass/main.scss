@@ -1,0 +1,188 @@
+/*************************************************************************/
+/**                                                                     **/
+/**    General styles definition                                        **/
+/**    Brais Saco - Alia Technologies                                   **/
+/**                                                                     **/
+/*************************************************************************/
+
+$separator-border: $alia-reports-base-separator-border;
+
+/*************************************************************************/
+
+// ---------------------------
+// General Classes
+// ---------------------------
+.no-breakeable {
+  @include no-breakeable;
+}
+
+.report-numeric {
+  font-size: 0.85em;
+}
+
+.highlight-text {
+  @include highlighted-text;
+}
+
+// ---------------------------
+// Report Title
+// ---------------------------
+.report-title {
+  @include report-title();
+}
+
+.report-title-bw {
+  @include report-title(color-bw(lighter));
+  border-bottom: 0;
+}
+
+.report-title-right {
+  display: inline-block;
+  float: right;
+  padding-right: 3px;
+  font-size: 0.65em;
+  text-transform: uppercase;
+}
+
+// ---------------------------
+// Section Titles
+// ---------------------------
+.section-title {
+  @include section-title($alia-reports-base-color-second);
+}
+
+.section-title-small {
+  @include section-title-small($alia-reports-base-color-second);
+}
+
+.section-title-main {
+  @include section-title();
+}
+
+.section-title-small-main {
+  @include section-title-small();
+}
+
+// ---------------------------
+// Contents
+// ---------------------------
+
+// Concepts Table.
+.concepts-table {
+  @extend %concepts-table;
+}
+
+.concepts-table-main {
+  @extend %concepts-table-main;
+}
+
+.concepts-table-second {
+  @extend %concepts-table-second;
+}
+
+// Basic info wrapper.
+.basic-report-info {
+  @extend %basic-report-info;
+}
+
+.basic-report-info-main {
+  @extend %basic-report-info-main;
+}
+
+.basic-report-info-second {
+  @extend %basic-report-info-second;
+}
+
+// Other info wrapper.
+.other-report-info {
+  @extend %other-report-info;
+}
+
+.other-report-info-main {
+  @extend %other-report-info-main;
+}
+
+.other-report-info-second {
+  @extend %other-report-info-second;
+}
+
+// ---------------------------
+// Tables
+// ---------------------------
+
+table {
+  td {
+    vertical-align: top;
+  }
+}
+
+/*.table-sm {
+  font-size: 0.9em;
+  border-bottom: 1px solid color-bw(lightest);
+
+  thead {
+    tr {
+      background-color: $alia-reports-base-table-bg-color-main;
+      th {
+        text-align: right;
+        font-weight: bold;
+      }
+    }
+  }
+  tbody {
+    tr {
+      td {
+        text-align: right;
+        padding-top: 0.6em;
+        padding-bottom: 0.6em;
+      }
+    }
+  }
+}*/
+
+// ---------------------------
+// Lists
+// ---------------------------
+
+ol {
+  margin: 0 0 2em;
+  padding: 0 0 0 2em;
+  counter-reset: item;
+}
+
+ol > li {
+  position: relative;
+  margin: 0;
+  list-style-type: none;
+  counter-increment: item;
+}
+
+ol > li:before {
+  position: absolute;
+  left: -2em;
+  top: 0;
+  display: inline-block;
+  width: 2em;
+  padding-right: 0.5em;
+  text-align: right;
+  content: counter(item) ".";
+}
+
+/*************************************************************************/
+
+// ---------------------------
+// Main Structure
+// ---------------------------
+html, body {
+  font-size: $alia-reports-base-font-size-main;
+  color: $alia-reports-base-font-color-main !important;
+  font-family: $alia-reports-base-font-family-main;
+  font-weight: $alia-reports-base-font-weight-main;
+
+  .contents-wrapper > .page {
+    margin-left: $alia-reports-base-contents-lateral-gutter;
+    margin-right: $alia-reports-base-contents-lateral-gutter;
+  }
+}
+
+

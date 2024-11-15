@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2015-28/12/21 Alia Technologies, S.L. - http://www.alialabs.com
+     @author:alia
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+  <data>
+    <record id="group_show_report_taxes" model="res.groups">
+        <field name="name">Show Report Taxes</field>
+        <field name="category_id" ref="base.module_category_hidden" />
+    </record>
+    <record id="group_show_report_unit" model="res.groups">
+        <field name="name">Show Report Unit</field>
+        <field name="category_id" ref="base.module_category_hidden" />
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="alia_sale_order_form_inherit_print_code_inherit" model="ir.ui.view">
+            <field name="name">alia.sale.order.form.inherit.print.code.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/notebook/page[@name='order_lines']/field[@name='order_line']/tree/field[@name='sequence']" position="after">
+                    <field name="print"/>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page[@name='order_lines']/field[@name='order_line']/tree/field[@name='sequence']" position="after">
+                    <field name="line_code"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

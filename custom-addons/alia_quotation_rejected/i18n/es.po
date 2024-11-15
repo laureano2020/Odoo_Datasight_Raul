@@ -1,0 +1,119 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* alia_quotation_rejected
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-10 08:57+0000\n"
+"PO-Revision-Date: 2024-04-10 08:57+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: alia_quotation_rejected
+#: model:ir.model,name:alia_quotation_rejected.model_alia_reject_reason
+msgid "Alia Reject Reason"
+msgstr "Motivo del rechazo"
+
+#. module: alia_quotation_rejected
+#: model:ir.model,name:alia_quotation_rejected.model_alia_reject_reason_type
+msgid "Alia Reject Reason Type"
+msgstr "Tipo de motivo de rechazo"
+
+#. module: alia_quotation_rejected
+#: model:ir.model.fields,field_description:alia_quotation_rejected.field_alia_reject_reason__create_uid
+#: model:ir.model.fields,field_description:alia_quotation_rejected.field_alia_reject_reason_type__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: alia_quotation_rejected
+#: model:ir.model.fields,field_description:alia_quotation_rejected.field_alia_reject_reason__create_date
+#: model:ir.model.fields,field_description:alia_quotation_rejected.field_alia_reject_reason_type__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: alia_quotation_rejected
+#: model:ir.model.fields,field_description:alia_quotation_rejected.field_alia_reject_reason__name
+msgid "Description"
+msgstr "Descripción"
+
+#. module: alia_quotation_rejected
+#: model:ir.model.fields,field_description:alia_quotation_rejected.field_alia_reject_reason__display_name
+#: model:ir.model.fields,field_description:alia_quotation_rejected.field_alia_reject_reason_type__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: alia_quotation_rejected
+#: model:ir.model.fields,field_description:alia_quotation_rejected.field_alia_reject_reason__id
+#: model:ir.model.fields,field_description:alia_quotation_rejected.field_alia_reject_reason_type__id
+msgid "ID"
+msgstr ""
+
+#. module: alia_quotation_rejected
+#: model:ir.model.fields,field_description:alia_quotation_rejected.field_alia_reject_reason____last_update
+#: model:ir.model.fields,field_description:alia_quotation_rejected.field_alia_reject_reason_type____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: alia_quotation_rejected
+#: model:ir.model.fields,field_description:alia_quotation_rejected.field_alia_reject_reason__write_uid
+#: model:ir.model.fields,field_description:alia_quotation_rejected.field_alia_reject_reason_type__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: alia_quotation_rejected
+#: model:ir.model.fields,field_description:alia_quotation_rejected.field_alia_reject_reason__write_date
+#: model:ir.model.fields,field_description:alia_quotation_rejected.field_alia_reject_reason_type__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: alia_quotation_rejected
+#: model:ir.model.fields,field_description:alia_quotation_rejected.field_alia_reject_reason_type__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: alia_quotation_rejected
+#: model:ir.model.fields,field_description:alia_quotation_rejected.field_alia_reject_reason__sale_order_id
+msgid "Quotation ID"
+msgstr "ID del presupuesto"
+
+#. module: alia_quotation_rejected
+#: model:ir.model.fields,field_description:alia_quotation_rejected.field_alia_reject_reason__type
+msgid "Reason Type"
+msgstr "Tipo de motivo"
+
+#. module: alia_quotation_rejected
+#: model_terms:ir.ui.view,arch_db:alia_quotation_rejected.alia_quotation_rejected_button_sale_order_view_form
+msgid "Reject"
+msgstr "Rechazar"
+
+#. module: alia_quotation_rejected
+#: model:ir.model.fields,field_description:alia_quotation_rejected.field_sale_order__reject_reason_ids
+#: model_terms:ir.ui.view,arch_db:alia_quotation_rejected.alia_quotation_rejected_reason_sale_order_view_form
+msgid "Reject Reasons"
+msgstr "Motivos del rechazo"
+
+#. module: alia_quotation_rejected
+#: model:ir.model.fields.selection,name:alia_quotation_rejected.selection__sale_order__state__reject
+msgid "Rejected"
+msgstr "Rechazado"
+
+#. module: alia_quotation_rejected
+#: model:ir.model,name:alia_quotation_rejected.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: alia_quotation_rejected
+#: model:ir.model.fields,field_description:alia_quotation_rejected.field_sale_order__state
+msgid "Status"
+msgstr "Estado"
+
+#. module: alia_quotation_rejected
+#: model_terms:ir.ui.view,arch_db:alia_quotation_rejected.alia_quotation_rejected_button_sale_order_view_form
+msgid "Volver a presupuesto"
+msgstr ""

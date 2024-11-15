@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <template name="Alia Reports - Base Block: Footer Company Info" id="alia_reports_base.footer_company_info">
+
+      <div id="alia-reports-base-footer-company-info" class="row footer-company-info">
+
+        <div class="col-6" t-if="company.partner_id.name">
+          <span class="company-name font-weight-bold" t-field="company.partner_id.name"/>
+        </div>
+
+        <div class="col-6 report-numeric" t-if="company.vat">
+          <span t-field="company.vat"/>
+        </div>
+
+      </div>
+
+      <div id="alia-reports-base-footer-legal-info" class="row footer-company-info">
+
+        <div class="col-12 single-line-text">
+          PO-68245 - C.I.F. B05297692 Datasight Consulting S.L.U. Inscrita en el Registro Mercantil de Pontevedra en el Folio 65 del Libro 4361 de Sociedades, Inscripción 1ª de la Hoja 1.
+        </div>
+
+      </div>
+
+    </template>
+  </data>
+</odoo>

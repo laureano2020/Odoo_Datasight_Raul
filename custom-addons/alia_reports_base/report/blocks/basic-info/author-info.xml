@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports - Base Block: Author Info" id="alia_reports_base.author_info">
+
+      <div id="alia-reports-base-author-info" class="alia-reports-block">
+
+        <div class="basic-report-info">
+
+          <div t-if="o.user_id.name">
+            <strong>Responsable</strong>
+            <span t-field="o.user_id.name"/>
+          </div>
+
+          <div t-if="'departament_id' in o.fields_get() and o.departament_id">
+            <strong>Departamento</strong>
+            <span t-field="doc.departament_id.name"/>
+          </div>
+
+          <div t-if="o.user_id.mobile">
+            <strong>Móvil</strong>
+            <span t-field="o.user_id.mobile"/>
+          </div>
+
+          <div t-if="o.user_id.phone">
+            <strong>Teléfono</strong>
+            <span t-field="o.user_id.phone"/>
+          </div>
+
+          <div t-if="o.user_id.email">
+            <strong>E-mail</strong>
+            <span t-field="o.user_id.email"/>
+          </div>
+
+        </div>
+
+      </div>
+    </template>
+
+  </data>
+</odoo>

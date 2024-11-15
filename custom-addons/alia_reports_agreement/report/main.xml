@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <!-- [Document] Document Contents -->
+    <template name="Alia Reports - Agreement External Layout" id="alia_reports_agreement.report_agreement">
+      <t t-call="web.external_layout">
+        <t t-set="doc" t-value="o.with_context(lang=o.partner_id.lang)"/>
+
+        <div class="page page-agreement">
+
+          <!-- Block: Basic Info -->
+          <t t-call="alia_reports_agreement.basic_info" t-lang="lang"/>
+
+          <!-- Block: Parties -->
+          <t t-call="alia_reports_agreement.parties_info" t-lang="lang"/>
+
+          <div class="report-title-bw">Agreement</div>
+
+          <!--Recitals-->
+          <t t-call="alia_reports_agreement.recitals_info" t-lang="lang"/>
+
+          <!--Special terms-->
+          <t t-call="alia_reports_agreement.special_terms" t-lang="lang"/>
+
+          <!--Signatures-->
+          <t t-call="alia_reports_agreement.signatures" t-lang="lang"/>
+
+        </div>
+
+        <!-- Block: Appendix -->
+        <t t-call="alia_reports_agreement.appendix" t-lang="lang"/>
+
+      </t>
+    </template>
+
+    <!-- [Document] Single Document -->
+    <template name="Alia Reports - Agreement Document"
+              id="alia_reports_agreement.report_agreement_template_document"
+              inherit_id="agreement_legal.report_agreement_document"
+              primary="True">
+      <xpath expr="//t[@t-call='web.external_layout']" position="replace">
+        <t t-call="alia_reports_agreement.report_agreement" t-lang="lang"/>
+      </xpath>
+    </template>
+
+    <!-- [Looper] Document looper (Multiple documents) -->
+    <template name="Alia Reports - Agreement Document Looper"
+              id="alia_reports_agreement.report_agreement_template">
+      <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+          <t t-set="lang"
+             t-value="o.partner_id.lang"/>
+          <t t-call="alia_reports_agreement.report_agreement_template_document" t-lang="lang"/>
+        </t>
+      </t>
+    </template>
+
+  </data>
+</odoo>

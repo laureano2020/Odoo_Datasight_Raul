@@ -1,0 +1,21 @@
+/*************************************************************************/
+/** Block: Parties Info
+/*************************************************************************/
+
+##{$module-name-prefix-agreement}-parties-info {
+
+  .parties-content {
+    padding-left: 10px;
+
+    [itemprop="name"] {
+      @include highlighted-text;
+    }
+
+  }
+
+  .parties-represented {
+    font-style: italic;
+  }
+
+
+}

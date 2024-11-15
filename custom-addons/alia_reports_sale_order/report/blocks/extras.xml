@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports - Base Block: Extras" id="alia_reports_sale_order.extras"
+              inherit_id="alia_reports_base.extras" primary="True">
+
+      <xpath expr="//div[1]" position="after">
+
+        <div t-if="'note' in doc.fields_get() and doc.note" id="alia-reports-sale-order-terms" class="alia-reports-block">
+          <div class="section-title">Terms and Conditions:</div>
+          <span t-field="doc.note"/>
+        </div>
+
+      </xpath>
+
+    </template>
+
+  </data>
+</odoo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

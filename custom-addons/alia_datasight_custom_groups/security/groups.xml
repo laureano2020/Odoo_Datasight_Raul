@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2015-22/07/19 Alia Technologies, S.L. - http://www.alialabs.com
+     @author:alia
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+
+    <record id="alia_group_internal_user" model="res.groups">
+        <field name="name">Alia Internal User</field>
+    </record>
+
+    <record id="alia_group_external_user" model="res.groups">
+        <field name="name">Alia External User</field>
+    </record>
+
+</odoo>

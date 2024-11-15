@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="alia_project_form_inherit_field_sequence_name" model="ir.ui.view">
+            <field name="name">project.project.form.inherit</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                    <field name="project_total_quoted" groups="sales_team.group_sale_manager"/>
+                </xpath>
+                <notebook position="inside">
+                    <page name="quotations" string="Presupuestos" groups="sales_team.group_sale_manager">
+                        <field name="project_quotation_ids">
+                            <tree>
+                                <field name="name"/>
+                                <field name="partner_id"/>
+                                <field name="create_date"/>
+                                <field name="user_id"/>
+                                <field name="amount_untaxed"/>
+                                <field name="state"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+<!--        <record id="alia_project_quoted_tree_inherit" model="ir.ui.view">-->
+<!--            <field name="name">alia.project.quoted.tree.inherit</field>-->
+<!--            <field name="model">project.project</field>-->
+<!--            <field name="inherit_id" ref="project.edit_project"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//field[@name='partner_id']" position="after">-->
+<!--                    <field name="project_total_quoted" -->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
+
+    </data>
+</odoo>

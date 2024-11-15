@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <template name="Alia Reports - Agreement Block: Clauses List" id="alia_reports_agreement.clauses_list">
+
+      <div id="alia-reports-agreement-clauses-list" class="alia-reports-block" t-if="s.clauses_ids">
+
+        <div class="clauses-list-title">Clauses:</div>
+
+        <ol class="clauses-list">
+          <li t-foreach="s.clauses_ids" t-as="c">
+            <t t-if="c.title">
+              <div class="list-item-title" t-field="c.title"/>
+            </t>
+            <p t-field="c.dynamic_content"/>
+          </li>
+        </ol>
+
+      </div>
+
+    </template>
+  </data>
+</odoo>

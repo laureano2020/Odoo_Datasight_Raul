@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <template name="Alia Reports - Sale Order Block: Payment Info" id="alia_reports_sale_order.payment_info">
+
+      <div id="alia-reports-sale-order-payment-info" class="alia-reports-block">
+
+        <div class="row">
+          <div class="col-8">
+
+            <!-- Block: Empty -->
+
+          </div>
+
+          <div class="col-4 report-amounts-wrapper">
+
+            <!-- Total Amount -->
+            <t t-call="alia_reports_base.totals" t-lang="lang"/>
+
+          </div>
+        </div>
+      </div>
+
+    </template>
+  </data>
+</odoo>

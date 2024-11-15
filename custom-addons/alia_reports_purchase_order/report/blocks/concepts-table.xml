@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports - Purchase Order Block: Concepts Table"
+              id="alia_reports_purchase_order.concepts_table">
+
+      <div id="alia-reports-purchase-order-concepts-table" class="alia-reports-block">
+
+        <table class="table table-sm o_main_table">
+          <thead>
+            <tr>
+              <th class="text-left">
+                <strong>Descripción</strong>
+              </th>
+              <!--              <th class="text-center">-->
+              <!--                <strong>Date Req.</strong>-->
+              <!--              </th>-->
+              <!--              <th class="text-center">-->
+              <!--                <strong>Taxes</strong>-->
+              <!--              </th>-->
+              <th class="text-right">
+                <strong>Cantidad</strong>
+              </th>
+              <th t-if="o.state not in ['draft', 'sent']" class="text-right">
+                <strong>Precio unitario</strong>
+              </th>
+              <th t-if="o.state not in ['draft', 'sent']" class="text-right">
+                <strong>Importe</strong>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr t-foreach="o.order_line" t-as="line" style="border-right: 1px solid white; border-left: 1px solid white">
+              <td class="text-left">
+                <span t-if="line.name" t-field="line.name"/>
+              </td>
+              <!--              <td class="text-center">-->
+              <!--                <span t-if="line.date_planned" t-field="line.date_planned" t-options="{'widget': 'date'}"/>-->
+              <!--              </td>-->
+              <!--              <td class="text-center">-->
+              <!--                <span t-if="line.taxes_id" t-esc="', '.join(map(lambda x: x.name, line.taxes_id))"/>-->
+              <!--              </td>-->
+
+              <td class="text-right">
+                <t t-if="line.product_qty">
+                  <span t-field="line.product_qty"/>
+                  <span t-field="line.product_uom.name" groups="uom.group_uom"/>
+                </t>
+              </td>
+                <td t-if="o.state not in ['draft', 'sent']" class="text-right">
+                  <span t-if="line.price_unit" t-field="line.price_unit"/>
+                </td>
+
+                <td t-if="o.state not in ['draft', 'sent']" class="text-right">
+                  <span t-if="line.price_subtotal" t-field="line.price_subtotal"
+                        t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+    </template>
+  </data>
+</odoo>

@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_categoria_convenio_hr_contract_manager,access_categoria_convenio_hr_contract_manager,model_hr_categoria_convenio,hr_contract.group_hr_contract_manager,1,1,1,1
+access_categoria_convenio_hr_manager,access_categoria_convenio_hr_manager,model_hr_categoria_convenio,hr.group_hr_manager,1,1,1,1
+access_grupo_cotizacion_hr_contract_manager,access_grupo_cotizacion_hr_contract_manager,model_hr_grupo_cotizacion,hr_contract.group_hr_contract_manager,1,1,1,1
+access_grupo_cotizacion_hr_manager,access_grupo_cotizacion_hr_manager,model_hr_grupo_cotizacion,hr.group_hr_manager,1,1,1,1
+
+
+

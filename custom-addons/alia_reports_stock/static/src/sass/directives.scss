@@ -1,0 +1,16 @@
+/*************************************************************************/
+/**                                                                     **/
+/**    Mixins, Placeholders and functions definition                    **/
+/**    Brais Saco - Alia Technologies                                   **/
+/**                                                                     **/
+/*************************************************************************/
+
+// Please, define using: [module-name]-[variable-name] to avoid variable scope problems.
+
+%alia-reports-stock-table {
+  table p {
+    margin: 0;
+    font-size: 0.9em;
+    color: color-text(lightest);
+  }
+}

@@ -1,0 +1,48 @@
+///*************************************************************************/
+///**                                                                     **/
+///**    General styles definition                                        **/
+///**    Brais Saco - Alia Technologies                                   **/
+///**                                                                     **/
+///*************************************************************************/
+
+// ---------------------------
+// Structure
+// ---------------------------
+html, body {
+
+  .contents-wrapper > .page.page-agreement {
+    @include report-content-without-lateral-gutters; // No lateral gutters.
+
+    .alia-reports-block {
+      margin-bottom: $alia-reports-base-gutter-base*2;
+    }
+
+    ##{$module-name-prefix-agreement}-clauses-list {
+      margin-bottom: 0;
+    }
+
+  }
+
+  /*
+  ##{$module-name-prefix-agreement}-basic-info {
+    margin-bottom: $alia-reports-base-gutter-base*2;
+  }
+
+  ##{$module-name-prefix-agreement}-concepts-table {
+    margin-bottom: $alia-reports-base-gutter-base*3;
+  }
+
+  ##{$module-name-prefix-agreement}-payment-info {
+    @include no-breakeable;
+    > .row {
+      margin-bottom: $alia-reports-base-gutter-base*3;
+    }
+  }
+
+  ##{$module-name-prefix-agreement}-terms {
+    @include no-breakeable;
+    margin-bottom: $alia-reports-base-gutter-base*2;
+  }
+  */
+
+}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <template name="Alia Reports - Stock Block: Delivery Slip Concepts Done Table"
+              id="alia_reports_stock.delivery_slip_concepts_done_table">
+
+      <div id="alia-reports-stock-delivery-slip-concepts-done-table" class="alia-reports-block"
+           t-if="o.move_line_ids and o.state=='done'">
+
+        <table class="table table-sm">
+          <t t-set="has_serial_number" t-value="o.move_line_ids.mapped('lot_id')"/>
+          <thead>
+            <tr>
+              <th class="text-left">
+                <strong>Product</strong>
+              </th>
+              <th class="text-center" name="lot_serial" t-if="has_serial_number" groups="stock.group_lot_on_delivery_slip">
+                Lot/Serial Number
+              </th>
+              <th class="text-right">
+                <strong>Quantity</strong>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr t-foreach="o.move_line_ids" t-as="move_line">
+              <td class="text-left">
+                <span t-field="move_line.product_id"/>
+                <p t-if="o.picking_type_code == 'outgoing'">
+                  <span t-field="move_line.product_id.sudo().description_pickingout"/>
+                </p>
+                <p t-if="o.picking_type_code == 'incoming'">
+                  <span t-field="move_line.product_id.sudo().description_pickingin"/>
+                </p>
+              </td>
+              <td class="text-center" t-if="has_serial_number and move_line.lot_name" groups="stock.group_lot_on_delivery_slip">
+                <span t-field="move_line.lot_name"/>
+              </td>
+              <td class="text-center" t-elif="has_serial_number" groups="stock.group_lot_on_delivery_slip">
+                <span t-field="move_line.lot_id.name"/>
+              </td>
+              <td class="text-right">
+                <span t-field="move_line.qty_done"/>
+                <span t-field="move_line.product_uom_id"/>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+    </template>
+  </data>
+</odoo>

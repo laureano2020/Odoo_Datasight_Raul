@@ -1,0 +1,122 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* alia_reports_sale_order
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-14 12:11+0000\n"
+"PO-Revision-Date: 2021-05-14 12:11+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: alia_reports_sale_order
+#: model_terms:ir.ui.view,arch_db:alia_reports_sale_order.concepts_table
+msgid "<span>Disc.(%)</span>"
+msgstr "<span>Desc.(%)</span>"
+
+#. module: alia_reports_sale_order
+#: model_terms:ir.ui.view,arch_db:alia_reports_sale_order.report_title
+msgid "<span>Pro-Forma Invoice</span>"
+msgstr "<span>Proforma</span>"
+
+#. module: alia_reports_sale_order
+#: model_terms:ir.ui.view,arch_db:alia_reports_sale_order.concepts_table
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr "<strong class=\"mr16\">Base Imp.</strong>"
+
+#. module: alia_reports_sale_order
+#: model_terms:ir.ui.view,arch_db:alia_reports_sale_order.report_date
+msgid "<strong>Date</strong>"
+msgstr "<strong>Fecha</strong>"
+
+#. module: alia_reports_sale_order
+#: model_terms:ir.ui.view,arch_db:alia_reports_sale_order.other_info
+msgid "<strong>Expiration Date</strong>"
+msgstr "<strong>Fecha de Vencimiento</strong>"
+
+#. module: alia_reports_sale_order
+#: model_terms:ir.ui.view,arch_db:alia_reports_sale_order.report_date
+msgid "<strong>Order Date</strong>"
+msgstr "<strong>Fecha de pedido</strong>"
+
+#. module: alia_reports_sale_order
+#: model_terms:ir.ui.view,arch_db:alia_reports_sale_order.order_info
+msgid "<strong>Our Order Reference</strong>"
+msgstr "<strong>Referencia de Pedido</strong>"
+
+#. module: alia_reports_sale_order
+#: model_terms:ir.ui.view,arch_db:alia_reports_sale_order.other_info
+msgid "<strong>Payment Terms</strong>"
+msgstr "<strong>Términos de Pago</strong>"
+
+#. module: alia_reports_sale_order
+#: model_terms:ir.ui.view,arch_db:alia_reports_sale_order.order_info
+msgid "<strong>Reference</strong>"
+msgstr "<strong>Referencia</strong>"
+
+#. module: alia_reports_sale_order
+#: model_terms:ir.ui.view,arch_db:alia_reports_sale_order.order_info
+msgid "<strong>Your Reference</strong>"
+msgstr "<strong>Su Referencia</strong>"
+
+#. module: alia_reports_sale_order
+#: model_terms:ir.ui.view,arch_db:alia_reports_sale_order.concepts_table
+msgid "Amount"
+msgstr "Importe"
+
+#. module: alia_reports_sale_order
+#: model_terms:ir.ui.view,arch_db:alia_reports_sale_order.concepts_table
+msgid "Description"
+msgstr "Descripción"
+
+#. module: alia_reports_sale_order
+#: model_terms:ir.ui.view,arch_db:alia_reports_sale_order.report_title
+msgid "Order"
+msgstr "Pedido"
+
+#. module: alia_reports_sale_order
+#: model_terms:ir.ui.view,arch_db:alia_reports_sale_order.concepts_table
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: alia_reports_sale_order
+#: model_terms:ir.ui.view,arch_db:alia_reports_sale_order.report_title
+msgid "Quotation"
+msgstr "Presupuesto"
+
+#. module: alia_reports_sale_order
+#: model:ir.actions.report,name:alia_reports_sale_order.sale_order
+msgid "Quotation / Order Alia"
+msgstr "Presupuesto / Pedido ALIA"
+
+#. module: alia_reports_sale_order
+#: model:ir.actions.report,name:alia_reports_sale_order.sale_order_html
+msgid "Quotation / Order Alia (Preview)"
+msgstr "Presupuesto / Pedido Alia (Vista Previa)"
+
+#. module: alia_reports_sale_order
+#: model_terms:ir.ui.view,arch_db:alia_reports_sale_order.concepts_table
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: alia_reports_sale_order
+#: model_terms:ir.ui.view,arch_db:alia_reports_sale_order.extras
+msgid "Terms and Conditions:"
+msgstr "Términos y Condiciones:"
+
+#. module: alia_reports_sale_order
+#: model_terms:ir.ui.view,arch_db:alia_reports_sale_order.concepts_table
+msgid "Total Price"
+msgstr "Precio Total"
+
+#. module: alia_reports_sale_order
+#: model_terms:ir.ui.view,arch_db:alia_reports_sale_order.concepts_table
+msgid "Unit Price"
+msgstr "Precio Unitario"
+

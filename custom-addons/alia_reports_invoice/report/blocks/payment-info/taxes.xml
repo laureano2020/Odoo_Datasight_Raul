@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <template name="Alia Reports - Invoice Block: Taxes" id="alia_reports_invoice.taxes">
+
+      <div id="alia-reports-invoice-taxes" class="alia-reports-block">
+
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th class="w-30">
+                Subtotal
+              </th>
+              <th class="w-30 text-center">
+                Taxes
+              </th>
+              <th class="w-15">
+                Rate
+              </th>
+              <th class="w-20 pr-2">
+                Amount
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <t t-foreach="doc.tax_totals['groups_by_subtotal']['Base imponible']" t-as="amount_by_group"> <!-- esto es una tupla -->
+                <tr>
+                  <td>
+                    <span class="report-numeric"
+                          t-esc="amount_by_group['formatted_tax_group_base_amount']"/> <!--este atributo viene como tipo currency desde la tupla -->
+                    <!--                        t-field-options='{"widget": "monetary","from_currency": doc.currency_id,"display_currency": doc.currency_id}'/>-->
+                  </td>
+                  <td class="text-center">
+                    <span class="report-numeric" t-esc="amount_by_group['tax_group_name']"/><!-- nombre del impuesto -->
+                    <!--                  t-field-options='{"widget": "monetary", "display_currency": "doc.currency_id"}'/>-->
+                  </td>
+                  <td>
+                    <span class="report-numeric"
+                          t-esc="amount_by_group['formatted_tax_group_amount']"/><!--este atributo viene como tipo currency desde la tupla -->
+                    <!--                        t-field-options='{"widget": "monetary","from_currency": doc.currency_id,"display_currency": doc.currency_id}'/>-->
+                  </td>
+                  <td>
+
+                                      <span class="report-numeric"
+                                            t-esc="((amount_by_group['tax_group_amount'] + amount_by_group['tax_group_base_amount']))"
+                                            t-options='{"widget": "monetary","from_currency": doc.currency_id,"display_currency": doc.currency_id}'
+                                      />
+                  </td>
+                </tr>
+            </t>
+
+          </tbody>
+        </table>
+
+      </div>
+
+    </template>
+  </data>
+</odoo>

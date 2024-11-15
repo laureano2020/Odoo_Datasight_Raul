@@ -1,0 +1,102 @@
+// ===========================================================================================
+// UTILS: CSS CLASSES
+// ===========================================================================================
+
+// -------------------------------------
+// Generic classes
+// -------------------------------------
+.no-selectable {
+  @extend %no-selectable;
+}
+
+.reader-only {
+  @extend %reader-only;
+}
+
+.mouse-pointer {
+  cursor:pointer;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+// -------------------------------------
+// Margin and Padding
+// -------------------------------------
+
+// [m|p]-[t|b|l|r|a]-[0...n]
+
+// Ex: m-t-10, m-l-20, ...
+@include prop-class-list("margin", $margin-step);
+// Ex: p-t-10, p-l-20, ...
+@include prop-class-list("padding", $padding-step);
+
+.no-gutters {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+// -------------------------------------
+// Content alters
+// -------------------------------------
+.content-currency {
+  @extend %content-currency;
+  &.USD:before { content: '$'; }
+  &.EUR:before { content: '\20AC'; }
+  &.ILS:before { content: '\20AA'; }
+  &.GBP:before { content: '\00A3'; }
+}
+
+.content-parenthesis {
+  @extend %content-parenthesis;
+}
+
+.content-keys {
+  @extend %content-keys;
+}
+
+// -------------------------------------
+// Visibility and display classes.
+// -------------------------------------
+.dsp-inline { display:inline; }
+.dsp-inline-block { display:inline-block; }
+.dsp-hidden { display:none; }
+.dsp-no-visible { visibility: hidden }
+.dsp-disabled {  opacity: 0.5;  }
+.dsp-transparent { opacity: 0 }
+
+// -------------------------------------
+// Dividers
+// -------------------------------------
+$separator-border: 1px dashed #ddd !default;
+.separator {
+  display:block;
+  margin:20px 0;
+  &.border {
+    border-bottom: $separator-border;
+  }
+  &.indented {
+    margin-left:15px;
+    margin-right:15px;
+  }
+}
+
+// -------------------------------------
+// HTML Lists
+// -------------------------------------
+ul.disc {
+  list-style-type: disc;
+  margin-left: 1.5em;
+  ul li {
+    list-style-type: square;
+    margin-left: 1.5em;
+  }
+}
+
+// -------------------------------------
+// Images
+// -------------------------------------
+.tint-white {
+  @include tint-white();
+}

@@ -1,0 +1,175 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* alia_reports_invoice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-14 11:38+0000\n"
+"PO-Revision-Date: 2021-05-14 11:38+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.payment_type
+msgid "<span>Concept:</span>"
+msgstr "<span>Concepto de Pago:</span>"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.payment_type
+msgid "<span>IBAN:</span>"
+msgstr ""
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.payment_type
+msgid "<span>Payment Method:</span>"
+msgstr "<span>Forma de Pago:</span>"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.dues
+msgid "<span>Payment Plan:</span>"
+msgstr "<span>Plan de Pago:</span>"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.payments
+msgid "<span>Payments Done:</span>"
+msgstr "<span>Pagos Realizados:</span>"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.payment_type
+msgid "<span>SWIFT:</span>"
+msgstr ""
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.invoice_info
+msgid "<strong>Date</strong>"
+msgstr "<strong>Fecha</strong>"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.invoice_info
+msgid "<strong>Ref.</strong>"
+msgstr "Número"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.invoice_info
+msgid "<strong>VAT</strong>"
+msgstr "<strong>CIF</strong>"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.concepts_table
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.payments
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.taxes
+msgid "Amount"
+msgstr "Importe"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.concepts_table
+msgid "Description"
+msgstr "Descripción"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.concepts_table
+msgid "Discount"
+msgstr "Descuento"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.dues
+msgid "Expiration date"
+msgstr "Fecha Vencimiento"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.report_title
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: alia_reports_invoice
+#: model:ir.actions.report,name:alia_reports_invoice.invoice_order
+msgid "Invoice ALIA"
+msgstr "Factura ALIA"
+
+#. module: alia_reports_invoice
+#: model:ir.actions.report,name:alia_reports_invoice.invoice_order_html
+msgid "Invoice ALIA (Preview)"
+msgstr "Factura ALIA (Vista Previa)"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.alia_account_payment_term_form
+msgid "Invoice Report"
+msgstr "Factura"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.alia_account_payment_term_form
+msgid "Options for Invoice Report customization."
+msgstr "Opciones de configuración de Factura"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.payments
+msgid "Paid on"
+msgstr "Pagado en"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.payments
+msgid "Payment Date"
+msgstr "Fecha de Pago"
+
+#. module: alia_reports_invoice
+#: model:ir.model,name:alia_reports_invoice.model_account_payment_term
+msgid "Payment Terms"
+msgstr "Plazos de pago"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.concepts_table
+msgid "Price"
+msgstr "Precio"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.concepts_table
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.dues
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.taxes
+msgid "Rate"
+msgstr "Valor"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.report_title
+msgid "Rectification Invoice"
+msgstr "Factura Rectificativa"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.concepts_table
+msgid "Ref."
+msgstr ""
+
+#. module: alia_reports_invoice
+#: model:ir.model.fields,field_description:alia_reports_invoice.field_account_payment_term__report_label
+msgid "Show Invoice Dues Label"
+msgstr "Mostrar Texto de Deudas en las Facturas"
+
+#. module: alia_reports_invoice
+#: model:ir.model.fields,field_description:alia_reports_invoice.field_account_payment_term__report_invoice_dues
+msgid "Show Invoice Dues Table"
+msgstr "Mostrar la Tabla de Deudas en las Facturas"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.taxes
+msgid "Subtotal"
+msgstr "Base Imponible"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.taxes
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: alia_reports_invoice
+#: model_terms:ir.ui.view,arch_db:alia_reports_invoice.totals
+msgid "Total Owed:"
+msgstr "Total Adeudado:"
+

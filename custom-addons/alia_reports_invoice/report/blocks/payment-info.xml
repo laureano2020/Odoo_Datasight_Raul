@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <template name="Alia Reports - Invoice Block: Payment Info" id="alia_reports_invoice.payment_info">
+
+      <div id="alia-reports-invoice-payment-info" class="alia-reports-block">
+
+        <div class="row">
+
+          <div class="col-6">
+
+            <!-- Block: Payment Type -->
+            <t t-call="alia_reports_invoice.payment_type" t-lang="lang"/>
+
+          </div>
+
+          <div class="col-5 offset-1">
+
+            <!-- Block: Taxes -->
+            <t t-call="alia_reports_invoice.taxes" t-lang="lang"/>
+
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-4">
+
+            <!-- Block: Dues List -->
+            <!--t t-call="alia_reports_invoice.dues" t-lang="lang"/-->
+
+          </div>
+          <div class="col-4">
+
+            <!-- Block: Payment List -->
+            <!--t t-call="alia_reports_invoice.payments" t-lang="lang"/-->
+
+          </div>
+          <div class="col-4 report-amounts-wrapper">
+
+            <!-- Total Amount -->
+            <t t-call="alia_reports_invoice.totals" t-lang="lang"/>
+
+          </div>
+        </div>
+      </div>
+
+    </template>
+  </data>
+</odoo>

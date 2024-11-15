@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+  <data>
+
+    <template name="Alia Reports - Invoice Block: Payment Type" id="alia_reports_invoice.payment_type">
+
+      <div id="alia-reports-invoice-payment-type" class="alia-reports-block">
+
+        <div class="row no-gutters">
+          <div class="col-4">
+            <span>Payment Method:</span>
+          </div>
+          <t t-if="doc.payment_mode_id">
+            <div class="col-8 text-right">
+              <span t-field="doc.payment_mode_id.name"/>
+            </div>
+          </t>
+          <t t-else="">
+            <div class="col-8 text-right">
+              <span t-field="doc.partner_id.customer_payment_mode_id.name"/>
+            </div>
+          </t>
+        </div>
+
+        <t t-if="doc.ref">
+          <div class="row no-gutters">
+            <div class="col-4">
+              <span>Concept:</span>
+            </div>
+            <div class="col-8 text-right">
+              <span class="report-numeric" t-field="doc.ref"></span>
+            </div>
+          </div>
+        </t>
+
+        <t t-if="doc.payment_mode_id and doc.payment_mode_id.show_bank_account != 'no' and doc.partner_banks_to_show()">
+          <div class="row no-gutters">
+            <t t-foreach="doc.partner_banks_to_show()" t-as="partner_bank">
+              <div class="col-2">
+                <span>IBAN:</span>
+              </div>
+              <div class="col-10 text-right">
+                <t t-esc="partner_bank.acc_number"/>
+              </div>
+            </t>
+          </div>
+
+          <t
+            t-if="doc.payment_mode_id.fixed_journal_id.bank_id and doc.payment_mode_id.fixed_journal_id.bank_id.bic">
+
+            <div class="row no-gutters">
+              <div class="col-4">
+                <span>SWIFT:</span>
+              </div>
+              <div class="col-8 text-right">
+                <span class="report-numeric"
+                      t-field="doc.payment_mode_id.fixed_journal_id.bank_id.bic"/>
+              </div>
+            </div>
+          </t>
+        </t>
+      </div>
+
+    </template>
+
+  </data>
+</odoo>

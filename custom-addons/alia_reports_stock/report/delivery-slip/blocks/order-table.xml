@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <template name="Alia Reports - Stock Block: Delivery Slip Order Table"
+              id="alia_reports_stock.delivery_slip_order_table">
+
+      <div id="alia-reports-stock-delivery-slip-order-table" class="alia-reports-block">
+
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th t-if="o.origin" class="text-left">
+                <strong>Order</strong>
+              </th>
+              <th name="td_sched_date_h" class="text-right">
+                <strong>Date</strong>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td t-if="o.origin" class="text-left">
+                <span t-field="o.origin"/>
+              </td>
+              <td name="td_sched_date" class="text-right">
+                <t t-if="o.state == 'done'">
+                  <span t-field="o.date_done"/>
+                </t>
+                <t t-if="o.state != 'done'">
+                  <span t-field="o.scheduled_date"/>
+                </t>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+      </div>
+
+    </template>
+  </data>
+</odoo>

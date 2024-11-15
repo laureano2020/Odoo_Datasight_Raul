@@ -1,0 +1,1 @@
+from . import hr_expense_account_move_partner

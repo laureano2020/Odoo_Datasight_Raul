@@ -1,0 +1,24 @@
+/*************************************************************************/
+/** Block: Recitals Info
+/*************************************************************************/
+
+##{$module-name-prefix-agreement}-recitals-info {
+
+  .list-item-title {
+    @include highlighted-text;
+    margin-bottom: 0.25em;
+  }
+
+  p:empty {
+    margin: 0;
+  }
+
+  ol {
+    padding-right: $alia-reports-base-gutter-base/2;
+  }
+
+  ol > li:before {
+    @include highlighted-text;
+  }
+
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports - Base Block: Extras" id="alia_reports_base.extras">
+
+      <!-- Extras: Comments. -->
+      <div t-if="'comment' in doc.fields_get() and doc.comment" id="alia-reports-base-terms" class="alia-reports-block">
+        <div class="section-title">Comments:</div>
+        <span t-field="doc.comment"/>
+      </div>
+
+      <div t-if="'notes' in doc.fields_get() and doc.notes" id="alia-reports-base-terms" class="alia-reports-block">
+        <div class="section-title">Notes:</div>
+        <span t-field="doc.notes"/>
+      </div>
+
+    </template>
+
+  </data>
+</odoo>

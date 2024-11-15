@@ -1,0 +1,28 @@
+/*************************************************************************/
+/**                                                                     **/
+/**    Font faces definition                                            **/
+/**    Brais Saco - Alia Technologies                                   **/
+/**                                                                     **/
+/*************************************************************************/
+
+$alia-reports-el-font-path: get-odoo-module-path($module-name-prefix-base, $o-assets-path-font);
+
+//--------------------------------------------------
+// Nunito
+//--------------------------------------------------
+$font-nunito-name: 'nunito';
+$font-nunito-path: $alia-reports-el-font-path + "/" + $font-nunito-name + "/";
+$font-nunito-exts: eot woff woff2 ttf svg;
+$font-nunito-family: 'Nunito Sans', sans-serif;
+@include font-face('Nunito Sans', $font-nunito-path + $font-nunito-name + '-200', 200, null, $font-nunito-exts);
+@include font-face('Nunito Sans', $font-nunito-path + $font-nunito-name + '-300', 300, null, $font-nunito-exts);
+@include font-face('Nunito Sans', $font-nunito-path + $font-nunito-name + '-regular', 400, null, $font-nunito-exts);
+@include font-face('Nunito Sans', $font-nunito-path + $font-nunito-name + '-600', 600, null, $font-nunito-exts);
+@include font-face('Nunito Sans', $font-nunito-path + $font-nunito-name + '-700', 700, null, $font-nunito-exts);
+@include font-face('Nunito Sans', $font-nunito-path + $font-nunito-name + '-800', 800, null, $font-nunito-exts);
+@include font-face('Nunito Sans', $font-nunito-path + $font-nunito-name + '-900', 900, null, $font-nunito-exts);
+
+
+strong {
+  font-weight: 700;
+}

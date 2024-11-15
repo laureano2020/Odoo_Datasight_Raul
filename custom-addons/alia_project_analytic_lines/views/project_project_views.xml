@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="alia_project_form_inherit_field_sequence_name" model="ir.ui.view">
+            <field name="name">project.project.form.inherit</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page name="analytic_lines" string="Apuntes Analíticos" groups="account.group_account_invoice">
+                        <field name="project_analytic_lines_ids">
+                            <tree>
+                                <field name="date"/>
+                                <field name="name"/>
+                                <field name="employee_id"/>
+                                <field name="unit_amount"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+    </data>
+</odoo>

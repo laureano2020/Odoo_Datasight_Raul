@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2015-22/07/19 Alia Technologies, S.L. - http://www.alialabs.com
+     @author:alia
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <data>
+
+        <record id="alia_sale_order_analytic_distribution_form_view" model="ir.ui.view">
+            <field name="name">alia.sale.order.analytic.distribution.form.view</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="analytic_distribution" widget="analytic_distribution"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2015-22/07/19 Alia Technologies, S.L. - http://www.alialabs.com
+     @author:alia
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <data>
+
+        <record id="alia_invoice_analytic_distribution_form_view" model="ir.ui.view">
+            <field name="name">alia.invoice.analytic.distribution.form.view</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//label[@for='journal_id']" position="before">
+                    <field name="move_analytic_distribution" widget="analytic_distribution"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,73 @@
+/*************************************************************************/
+/** Block: Footer
+/*************************************************************************/
+
+##{$module-name-prefix-base}-footer {
+  padding-top: 2px;
+
+  .footer-first {
+    padding-top: 0px;
+    padding-bottom: 3px;
+    position: relative;
+    @include after {
+      @include absolute(-1px, 15px, -1px, 15px);
+      background-color: #F4f4f4;
+      z-index: -1;
+      border-top: $alia-reports-base-separator-border;
+      border-bottom: $alia-reports-base-separator-border;
+    }
+
+    // ---------------------------
+    // Footer: Report Number
+    // ---------------------------
+    .footer-report-number {
+      font-size: 0.7rem;
+      color: color-text(lighter);
+      border-left: 6px solid color-main();
+      padding-left: 10px;
+    }
+
+    // ---------------------------
+    // Footer: Pager
+    // ---------------------------
+    #alia-reports-base-pager {
+      padding-top: 0.3rem;
+    }
+  }
+
+  .footer-second {
+    margin-top: 0.3rem;
+    font-size: 0.75rem;
+    text-align: center;
+    color: color-text(lighter);
+    padding: 0.5rem 0 0.3rem;
+
+    .row {
+      margin-top: 0.8rem;
+
+      > * {
+        text-align: center;
+        &:last-child {
+          text-align: right;
+        }
+
+        &:first-child {
+          text-align: left;
+        }
+      }
+    }
+
+    .company-name {
+      color: color-main();
+    }
+  }
+
+  // ---------------------------
+  // Footer: Legal Info
+  // ---------------------------
+  .single-line-text {
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports - Purchase Order Block: Report Title" id="alia_reports_purchase_order.report_title">
+
+      <div id="alia-reports-purchase-order-report-title" class="alia-reports-block">
+
+        <t t-if="o.state in ['draft', 'sent']">Solicitud de Presupuesto</t>
+        <t t-if="o.state in ['to approve']">Pedido de Compra</t>
+        <t t-if="o.state in ['purchase', 'done']">Pedido de Compra</t>
+        <t t-if="o.state == 'cancel'">Pedido de Compra Cancelado</t>
+        <!--<span t-field="doc.name"/>-->
+
+      </div>
+
+    </template>
+
+  </data>
+</odoo>

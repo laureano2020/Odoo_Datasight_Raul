@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <!-- [REPORTS] Report Types: PDF AND HTML (For development only) -->
+<!--    <report-->
+<!--      id="delivery_slip"-->
+<!--      string="Stock Delivery Slip ALIA"-->
+<!--      model="stock.picking"-->
+<!--      report_type="qweb-pdf"-->
+<!--      name="alia_reports_stock.report_delivery_slip_template"-->
+<!--      file="alia_reports_stock.report_delivery_slip_template"-->
+<!--      paperformat="alia_reports_base.alia_paperformat_a4"-->
+<!--      print_report_name="'Delivery Slip - %s - %s' % (object.partner_id.name or '', object.name)"-->
+<!--    />-->
+
+    <record id ="delivery_slip" model = "ir.actions.report">
+      <field name="name">Stock Delivery Slip ALIA</field>
+      <field name="model">stock.picking</field>
+      <field name="report_type">qweb-pdf</field>
+      <field name="report_name">alia_reports_stock.report_delivery_slip_template</field>
+      <field name="report_file">alia_reports_stock.report_delivery_slip_template</field>
+      <field name="binding_model_id" ref="stock.model_stock_picking"/>
+      <field name="binding_type">report</field>
+    </record>
+
+    <record id ="delivery_slip_html" model = "ir.actions.report">
+      <field name="name">Stock Delivery Slip ALIA (Preview)</field>
+      <field name="model">stock.picking</field>
+      <field name="report_type">qweb-html</field>
+      <field name="report_name">alia_reports_stock.report_delivery_slip_template</field>
+      <field name="report_file">alia_reports_stock.report_delivery_slip_template</field>
+      <field name="binding_model_id" ref="stock.model_stock_picking"/>
+      <field name="binding_type">report</field>
+    </record>
+
+
+<!--    <report-->
+<!--      id="delivery_slip_html"-->
+<!--      string="Stock Delivery Slip ALIA (Preview)"-->
+<!--      model="stock.picking"-->
+<!--      report_type="qweb-html"-->
+<!--      name="alia_reports_stock.report_delivery_slip_template"-->
+<!--      file="alia_reports_stock.report_delivery_slip_template"-->
+<!--      paperformat="alia_reports_base.alia_paperformat_a4"-->
+<!--    />-->
+
+  </data>
+</odoo>

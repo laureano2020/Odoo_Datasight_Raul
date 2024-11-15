@@ -1,0 +1,30 @@
+/*************************************************************************/
+/** Block: Payment Type
+/*************************************************************************/
+
+##{$module-name-prefix-invoice}-payment-type {
+
+  border-left: 3px solid color_second(light);
+  padding: 0px 10px;
+  background-color: $alia-reports-base-table-bg-color-light;
+
+  .row {
+    padding-bottom: 0.5em;
+    border-bottom: $alia-reports-base-separator-border;
+    margin-bottom: 0.5em;
+    > div {
+      padding: 7px 0;
+    }
+
+    > div:first-child {
+      white-space: nowrap;
+      > span {
+        font-weight: bold;
+      }
+    }
+
+    &:last-child {
+      border: none;
+    }
+  }
+}

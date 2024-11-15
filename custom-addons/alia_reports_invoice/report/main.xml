@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <!-- [Document] Document Contents -->
+    <template name="Alia Reports - Invoice External Layout" id="alia_reports_invoice.report_invoice">
+      <t t-call="web.external_layout">
+        <t t-set="doc" t-value="o.with_context(lang=o.partner_id.lang)"/>
+
+        <div class="page page-invoice">
+
+          <!-- Block: Basic Info: client & report data. -->
+          <t t-call="alia_reports_invoice.basic_info" t-lang="lang"/>
+
+          <!-- Block: Concepts Table -->
+          <t t-call="alia_reports_invoice.concepts_table" t-lang="lang"/>
+
+          <!-- Block: Amount Info -->
+          <t t-call="alia_reports_invoice.payment_info" t-lang="lang"/>
+
+          <!-- Block: Extra data -->
+          <t t-call="alia_reports_base.extras" t-lang="lang"/>
+
+        </div>
+      </t>
+    </template>
+
+    <!-- [Document] Document -->
+    <template name="Alia Reports - Invoice Document"
+              id="alia_reports_invoice.report_account_invoice_template_document"
+              inherit_id="account.report_invoice_document"
+              primary="True">
+      <xpath expr="//t[@t-call='web.external_layout']" position="replace">
+        <t t-call="alia_reports_invoice.report_invoice" t-lang="lang"/>
+      </xpath>
+    </template>
+
+    <!-- [Looper] Document looper (Multiple documents) -->
+    <template name="Alia Reports - Invoice Document Looper"
+              id="alia_reports_invoice.report_account_invoice_template">
+      <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+          <t t-set="lang"
+             t-value="o.user_id.lang if o.move_type in ('in_invoice', 'in_refund') else o.partner_id.lang"/>
+          <t t-call="alia_reports_invoice.report_account_invoice_template_document" t-lang="lang"/>
+        </t>
+      </t>
+    </template>
+
+  </data>
+</odoo>

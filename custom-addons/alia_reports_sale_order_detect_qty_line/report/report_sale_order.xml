@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="alia_reports_sale_order_detect_qty_line.concepts_table" inherit_id="alia_reports_sale_order.concepts_table">
+        <xpath expr="//t[@t-foreach='doc.order_line']" position="attributes">
+            <attribute name="t-if" >line.product_uom_qty != 0</attribute>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports - Sale Order Block: Report Date" id="alia_reports_sale_order.report_date">
+
+      <div id="alia-reports-sale-order-report-date" class="alia-reports-block">
+
+<!--        este campo no está en la versión 14. -->
+<!--        <div t-if="o.confirmation_date and doc.state not in ['draft','sent']">-->
+<!--          <strong>Order Date</strong>-->
+<!--          <span t-field="o.confirmation_date" t-options="{'widget': 'date'}"/>-->
+<!--        </div>-->
+
+        <div t-if="o.date_order">
+          <strong>Date</strong>
+          <span t-field="o.date_order" t-options="{'widget': 'date'}"/>
+        </div>
+
+      </div>
+
+    </template>
+
+  </data>
+</odoo>

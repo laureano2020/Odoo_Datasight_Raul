@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports - Sale Order Block: Author Info" id="alia_reports_sale_order.author_info"
+              inherit_id="alia_reports_base.author_info" primary="True">
+
+      <xpath expr="//div/div[1]" position="attributes">
+        <attribute name="class">other-report-info-second</attribute>
+      </xpath>
+
+    </template>
+
+  </data>
+</odoo>

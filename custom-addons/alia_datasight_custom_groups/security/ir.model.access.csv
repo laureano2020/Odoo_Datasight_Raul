@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+alia_access_partner_internal_user,alia_access_partner_internal_user,base.model_res_partner,alia_datasight_custom_groups.alia_group_internal_user,1,0,0,0
+
+
+

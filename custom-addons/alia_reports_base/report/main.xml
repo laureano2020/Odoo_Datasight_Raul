@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports - External Layout" id="alia_reports_external_layout_base">
+
+      <t t-if="not no_header">
+        <!-- Block: Header -->
+        <t t-call="alia_reports_base.header"/>
+      </t>
+
+      <!-- External Layout: Body -->
+      <div class="article contents-wrapper" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id"
+           t-att-data-oe-lang="o and o.env.context.get('lang')">
+        <t t-raw="0"/>
+      </div>
+
+      <t t-if="not no_footer">
+        <!-- Block: Footer -->
+        <t t-call="alia_reports_base.footer"/>
+      </t>
+
+    </template>
+
+  </data>
+</odoo>

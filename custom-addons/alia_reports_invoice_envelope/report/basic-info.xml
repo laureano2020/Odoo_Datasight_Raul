@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports Invoice Envelope - Block: Basic Info" id="alia_reports_invoice_envelope.basic_info" inherit_id="alia_reports_invoice.basic_info">
+
+      <xpath expr="//div[contains(@class, 'report-info')]" position="replace">
+
+        <div class="row report-info">
+          <div class="col-5">
+            <!-- Block: Invoice Info -->
+            <t t-call="alia_reports_invoice.invoice_info" t-lang="lang"/>
+          </div>
+          <div class="col-1"><!-- Gutter --></div>
+          <div class="col-6">
+            <!-- Block: Client Info -->
+            <t t-call="alia_reports_invoice_envelope.client_info" t-lang="lang"/>
+          </div>
+        </div>
+
+      </xpath>
+
+    </template>
+
+  </data>
+</odoo>
+

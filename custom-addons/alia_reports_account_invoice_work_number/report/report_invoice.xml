@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template name="Alia Reports - Invoice Block: Concepts Table Group by Sale Order with Work Number" id="alia_reports_account_invoice_work_number.concepts_table" inherit_id="alia_reports_account_invoice_group_by_sale_order.order_concepts_table">
+
+    <xpath expr="//span[@t-field='sale_order.name']" position="after">
+        <span t-if="sale_order.work_number">Work Number:</span>
+        <span t-if="sale_order.work_number" t-field="sale_order.work_number"/>
+    </xpath>
+    </template>
+</odoo>

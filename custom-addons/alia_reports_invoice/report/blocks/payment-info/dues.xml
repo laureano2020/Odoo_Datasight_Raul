@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <template name="Alia Reports - Invoice Block: Dues" id="alia_reports_invoice.dues">
+
+      <t t-set="due_list" t-value="o.get_multi_due_list()"/>
+      <t t-if="due_list">
+        <div id="alia-reports-invoice-dues" class="alia-reports-block">
+
+<!--          no invoice_payment_term_id en account.move-->
+          <t t-if="o.invoice_payment_term_id.report_label or o.invoice_payment_term_id.report_invoice_dues">
+
+            <div class="section-title-small">
+              <span>Payment Plan:</span>
+              <span t-if="o.invoice_payment_term_id.report_label"
+                    t-field="o.invoice_payment_term_id.note" class="payment-term text-muted"/>
+            </div>
+
+            <t t-if="o.invoice_payment_term_id.report_invoice_dues">
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th class="text-left">Expiration date</th>
+                    <th class="text-right">Quantity</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr t-foreach="due_list" t-as="due_tuple">
+                    <td class="text-left report-numeric">
+                      <span t-esc="due_tuple[0]"
+                            t-options="{'widget': 'date'}"/>
+                    </td>
+                    <td class="text-right report-numeric">
+                      <span t-esc="due_tuple[1]"
+                            t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </t>
+
+          </t>
+
+        </div>
+      </t>
+
+    </template>
+  </data>
+</odoo>

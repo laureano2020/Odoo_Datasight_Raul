@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <!-- [REPORTS] Report Types: PDF AND HTML (For development only) -->
+
+    <record id ="purchase_order" model = "ir.actions.report">
+      <field name="name">Purchase Order ALIA</field>
+      <field name="model">purchase.order</field>
+      <field name="report_type">qweb-pdf</field>
+      <field name="report_name">alia_reports_purchase_order.report_purchase_order_template</field>
+      <field name="report_file">alia_reports_purchase_order.report_purchase_order_template</field>
+      <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+      <field name="binding_type">report</field>
+    </record>
+    <record id = "purchase_order_html" model = "ir.actions.report">
+      <field name="name">Purchase Order ALIA (Preview)</field>
+      <field name="model">purchase.order</field>
+      <field name="report_type">qweb-html</field>
+      <field name="report_name">alia_reports_purchase_order.report_purchase_order_template</field>
+      <field name="report_file">alia_reports_purchase_order.report_purchase_order_template</field>
+      <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+      <field name="binding_type">report</field>
+    </record>
+  </data>
+</odoo>

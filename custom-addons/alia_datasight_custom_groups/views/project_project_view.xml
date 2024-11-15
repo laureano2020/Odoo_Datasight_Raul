@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2015-22/07/19 Alia Technologies, S.L. - http://www.alialabs.com
+     @author:alia
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <data>
+
+        <record id="alia_project_form_view_inherit" model="ir.ui.view">
+            <field name="name">alia.project.form.view.inherit</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="partner_id" groups="alia_datasight_custom_groups.alia_group_internal_user"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

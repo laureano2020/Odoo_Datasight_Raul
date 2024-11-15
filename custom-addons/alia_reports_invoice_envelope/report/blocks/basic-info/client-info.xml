@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports Envelope - Base Block: Client Info" id="alia_reports_invoice_envelope.client_info">
+
+      <div id="alia-reports-base-client-info" class="alia-reports-block">
+
+        <!-- Header Logo -->
+        <div class="report-client-logo" t-if="doc.partner_id.image_1024">
+          <img t-att-src="image_data_uri(doc.partner_id.image_1024)"/>
+        </div>
+
+        <div class="report-client-info-wrapper">
+          <!-- Client Name -->
+          <div t-if="doc.partner_id.name" class="report-client-name">
+            <strong t-field="doc.partner_id.name"/>
+          </div>
+
+          <!-- Client Location -->
+          <div class="report-client-location">
+            <div>
+              <div t-if="doc.partner_id.street" t-field="doc.partner_id.street"/>
+              <div t-if="doc.partner_id.street2" t-field="doc.partner_id.street2"/>
+            </div>
+            <div>
+              <span t-if="doc.partner_id.zip" t-field="doc.partner_id.zip"/>
+              <span t-if="doc.partner_id.city" t-field="doc.partner_id.city"/>
+              <span t-if="doc.partner_id.state_id.name" t-field="doc.partner_id.state_id.name"/>
+            </div>
+<!--            <div>-->
+<!--              <span t-if="doc.partner_id.country_id.name" t-field="doc.partner_id.country_id.name"/>-->
+<!--            </div>-->
+            <div>
+              <span t-if="doc.partner_id.vat" t-field="doc.partner_id.vat"/>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </template>
+
+  </data>
+</odoo>

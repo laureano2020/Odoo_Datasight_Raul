@@ -1,0 +1,297 @@
+/*************************************************************************/
+/**                                                                     **/
+/**    Mixins, Placeholders and functions definition                    **/
+/**    Brais Saco - Alia Technologies                                   **/
+/**                                                                     **/
+/*************************************************************************/
+
+// ---------------------------
+// Functions
+// ---------------------------
+
+// Retrieve module name for HTML ids and classes.
+@function get-odoo-module-prefix($module-name: $module-name-prefix-base) {
+  @return str-replace($module-name, '-', '_');
+}
+
+// Retrive path including module main folder.
+@function get-odoo-module-path($module-name: $module-name-prefix-base, $path: '/') {
+  @return '/' + get-odoo-module-prefix($module-name) + $path;
+}
+
+// Color variations - Main color.
+@function color-main($tone: '') {
+  @return color-tone($alia-reports-base-color-main, $tone);
+}
+
+// Color variations - Secondary color.
+@function color-second($tone: '') {
+  @return color-tone($alia-reports-base-color-second, $tone);
+}
+
+// Color variations - Text color.
+@function color-text($tone: '') {
+  @return color-tone($alia-reports-base-font-color-main, $tone);
+}
+
+// Color variations - Gray scale color.
+@function color-bw($tone: '') {
+  @return color-tone($alia-reports-base-color-bw, $tone);
+}
+
+// ---------------------------
+// Mixins
+// ---------------------------
+
+// Avoid to break the container in PDF page breaks.
+@mixin no-breakeable {
+  page-break-before: auto;
+  page-break-inside: avoid;
+}
+
+@mixin break-after {
+  page-break-after: always;
+}
+
+@mixin break-before {
+  page-break-before: always;
+}
+
+// Highlight text format
+@mixin highlighted-text {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+// Report titles.
+// - $bg-color: Color of the background.
+// - $text-color: Color of the text.
+@mixin report-title($bg-color: color-main(), $text-color: $alia-reports-base-color-contrast) {
+  height: 35px;
+  line-height: 33px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
+  background-color: $bg-color;
+  color: $text-color;
+  border-bottom: 4px solid rgba(255, 255, 255, 0.3);
+  margin-bottom: $alia-reports-base-gutter-base * 1.5 !important;
+  padding-left: $alia-reports-base-gutter-base/2 !important;
+  padding-right: $alia-reports-base-gutter-base/2 !important;
+}
+
+// Sections titles.
+// - $color: Color of the decorations and font.
+@mixin section-title($color: $alia-reports-base-color-main) {
+  position: relative;
+  color: color-tone($color);
+  font-weight: bold;
+  @include make-separator-before($alia-reports-base-gutter-base * 0.66);
+  font-size: 1.15rem;
+  margin-bottom: $alia-reports-base-gutter-base;
+  @include after() {
+    @include absolute(10px, 4px, 0, auto);
+    border-left: 6px solid color-tone($color, light);
+    height: 25px;
+  }
+}
+
+// Small sections titles.
+// - $color: Color of the decorations and font.
+@mixin section-title-small($color: $alia-reports-base-color-main) {
+  position: relative;
+  padding-left: 10px;
+  color: color-tone($color);
+  font-weight: bold;
+  @include make-separator-before(5px);
+  margin-bottom: $alia-reports-base-gutter-base * 0.85;
+  @include after() {
+    @include absolute(5px, auto, 0, 0);
+    border-left: 3px solid color-tone($color, light);
+    height: 23px;
+  }
+}
+
+// Report Formats for Contents.
+@mixin report-content-without-lateral-gutters {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@mixin report-content-break-container-gutters {
+  margin-left: -$alia-reports-base-gutter-base;
+  margin-right: -$alia-reports-base-gutter-base;
+}
+
+// Main styles for Concepts' table.
+@mixin concepts-table(
+  $bg-color: $alia-reports-base-table-bg-color-highlight,
+  $border-color: none,
+  $text-color: inherit
+) {
+  thead > tr {
+    background-color: $bg-color;
+    border-style: none;
+    color: $text-color;
+    th {
+      &:first-child {
+        padding-left: $alia-reports-base-gutter-base / 2;
+      }
+      &:last-child {
+        padding-right: $alia-reports-base-gutter-base / 2;
+      }
+    }
+  }
+
+  tbody > tr {
+    border-style: none;
+    color: $text-color;
+
+    &.line-section {
+      background-color: $alia-reports-base-table-bg-color-light;
+      font-weight: bold;
+      color: color-main();
+
+      > td {
+        position: relative;
+        text-align: left;
+        padding: $alia-reports-base-gutter-base/2.5 10px;
+        @include before {
+          @include absolute(5px, auto, 5px, 0);
+          width: 2px;
+          background-color: color-bw(lightest);
+        }
+      }
+
+    }
+
+    &.line-note {
+      text-align: left;
+      font-style: italic;
+      color: color-text(lighter);
+
+      > td {
+        text-align: left;
+        padding-left: 1px;
+
+        > span {
+          display: inline-block;
+          border-left: none;
+          padding-left: $alia-reports-base-gutter-base/2;
+          color: color-main();
+        }
+      }
+
+    }
+  }
+
+  &.table-sm thead > tr {
+    background-color: $bg-color;
+  }
+}
+
+// Basic Styles for Report main info wrapper.
+@mixin basic-report-info(
+  $bg-color: $alia-reports-base-table-bg-color-light,
+  $border-color: color_tone($bg-color, dark),
+  $text-color: inherit
+) {
+  text-align: right;
+  padding: $alia-reports-base-gutter-base * 0.6 $alia-reports-base-gutter-base;
+  background-color: $bg-color;
+  border: 1px solid $border-color;
+  color: $text-color;
+
+  & > div {
+    padding-top: 6px;
+    padding-bottom: 2.5px;
+
+    strong {
+      float: left;
+      &:after {
+        content: ":";
+      }
+    }
+  }
+}
+
+// Basic Styles for Report other info wrapper.
+@mixin other-report-info(
+  $bg-color: $alia-reports-base-table-bg-color-light,
+  $border-color:$alia-reports-base-color-bw,
+  $text-color: inherit
+) {
+  border-left: 3px solid $border-color;
+  padding: 0 $alia-reports-base-gutter-base * 0.6;
+  background-color: $bg-color;
+  color: $text-color;
+
+  > * {
+    padding: 0.5em 0;
+    border-bottom: $alia-reports-base-separator-border;
+    margin-bottom: 0.5em;
+    text-align: right;
+
+    > :first-child {
+      white-space: nowrap;
+      font-weight: bold;
+      float: left;
+    }
+
+    &:last-child {
+      border: none;
+    }
+  }
+}
+
+// ---------------------------
+// Placeholders
+// ---------------------------
+
+// Concepts Table.
+// ---------------
+%concepts-table {
+  @include concepts-table();
+}
+
+%concepts-table-main {
+  @include concepts-table($border-color: color-main(light));
+}
+
+%concepts-table-second {
+  @include concepts-table($border-color: color-second(light));
+}
+
+// Basic Report info wrapper.
+// ---------------
+%basic-report-info {
+  @include basic-report-info();
+}
+
+%basic-report-info-main {
+  @include basic-report-info(color-main(lightest), color-main(light), color-text(light));
+}
+
+%basic-report-info-second {
+  @include basic-report-info(color-second(lightest), color-second(light), color-text(light));
+}
+
+// Other Report info wrapper.
+// ---------------
+%other-report-info {
+  @include other-report-info();
+}
+
+%other-report-info-main {
+  @include other-report-info($border-color: color-main(light));
+}
+
+%other-report-info-second {
+  @include other-report-info($border-color: color-second(light));
+}
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <template name="Alia Reports - Base Block: Footer Contact Info" id="alia_reports_base.footer_contact_info">
+
+      <div id="alia-reports-base-header-contact-info" class="row footer-contact-info">
+
+        <div class="col-4" t-if="company.phone">
+          Phone:
+          <span t-field="company.phone"/>
+        </div>
+
+        <div class="col-4" t-if="company.email">
+          Email:
+          <span t-field="company.email"/>
+        </div>
+
+        <div class="col-4" t-if="company.website">
+          Website:
+          <span t-field="company.website"/>
+        </div>
+
+      </div>
+
+    </template>
+  </data>
+</odoo>

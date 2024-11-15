@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2015-22/07/19 Alia Technologies, S.L. - http://www.alialabs.com
+     @author:alia
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <data>
+
+        <record id="alia_contract_contract_customer_form_view_inherit" model="ir.ui.view">
+            <field name="name">alia.contract.contract.customer.form.view.inherit</field>
+            <field name="model">contract.contract</field>
+            <field name="inherit_id" ref="contract.contract_contract_customer_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page name="purchase_orders" string="Purchase orders">
+                        <field name="purchase_order_ids" readonly="1">
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

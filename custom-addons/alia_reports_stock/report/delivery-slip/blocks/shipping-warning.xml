@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <template name="Alia Reports - Stock Block: Delivery Slip Shipping Warning"
+              id="alia_reports_stock.delivery_slip_shipping_warning">
+
+      <div id="alia-reports-stock-delivery-slip-shipping-warning" class="alia-reports-block"
+           t-if="o.backorder_ids and o.backorder_ids.filtered(lambda x: x.state not in ('done', 'cancel'))">
+
+        <div class="section-title">Warning</div>
+        All items couldn't be shipped, the remaining ones will be shipped as soon as they become available.
+
+      </div>
+
+    </template>
+  </data>
+</odoo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

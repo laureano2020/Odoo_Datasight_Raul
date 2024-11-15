@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <!-- [REPORTS] Report Types: PDF AND HTML (For development only) -->
+<!--    <report-->
+<!--      id="agreement"-->
+<!--      string="Agreement ALIA"-->
+<!--      model="agreement"-->
+<!--      report_type="qweb-pdf"-->
+<!--      name="alia_reports_agreement.report_agreement_template"-->
+<!--      file="alia_reports_agreement.report_agreement_template"-->
+<!--      paperformat="alia_reports_base.alia_paperformat_a4"-->
+<!--      print_report_name="'Agreement - %s - %s' % (object.partner_id.name or '', object.name)"-->
+<!--    />-->
+
+    <record id ="agreement" model = "ir.actions.report">
+      <field name="name">Agreement ALIA</field>
+      <field name="model">agreement</field>
+      <field name="report_type">qweb-pdf</field>
+      <field name="report_name">alia_reports_agreement.report_agreement_template</field>
+      <field name="report_file">alia_reports_agreement.report_agreement_template</field>
+      <field name="binding_model_id" ref="agreement.model_agreement"/>
+      <field name="binding_type">report</field>
+    </record>
+    <record id ="agreement_html" model = "ir.actions.report">
+      <field name="name">Agreement ALIA (Preview)</field>
+      <field name="model">agreement</field>
+      <field name="report_type">qweb-html</field>
+      <field name="report_name">alia_reports_agreement.report_agreement_template</field>
+      <field name="report_file">alia_reports_agreement.report_agreement_template</field>
+      <field name="binding_model_id" ref="agreement.model_agreement"/>
+      <field name="binding_type">report</field>
+    </record>
+
+<!--    <report-->
+<!--      id="agreement_html"-->
+<!--      string="Agreement ALIA (Preview)"-->
+<!--      model="agreement"-->
+<!--      report_type="qweb-html"-->
+<!--      name="alia_reports_agreement.report_agreement_template"-->
+<!--      file="alia_reports_agreement.report_agreement_template"-->
+<!--      paperformat="alia_reports_base.alia_paperformat_a4"-->
+<!--    />-->
+
+  </data>
+</odoo>

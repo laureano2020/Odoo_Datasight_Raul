@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <template name="Alia Reports - Invoice Block: Report Title" id="alia_reports_invoice.report_title">
+
+      <div id="alia-reports-invoice-report-title" class="alia-reports-block">
+
+        <t t-if="doc.move_type == 'out_invoice' or doc.move_type == 'in_invoice'">
+          Invoice
+        </t>
+
+        <t t-if="doc.move_type == 'out_refund' or doc.move_type == 'in_refund'">
+          Rectification Invoice
+        </t>
+
+        <span t-if="not doc.name" class="report-title-right">
+          Draft
+        </span>
+
+      </div>
+
+    </template>
+
+  </data>
+</odoo>

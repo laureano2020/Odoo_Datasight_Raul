@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <!-- [Document] Document Contents -->
+    <template name="Alia Reports - Stock - Delivery Slip External Layout" id="alia_reports_stock.report_delivery_slip">
+      <t t-call="web.external_layout">
+        <t t-set="doc" t-value="o.with_context(lang=o.partner_id.lang)"/>
+        <t t-set="partner" t-value="o.partner_id or (o.move_lines and o.move_lines[0].partner_id) or False"/>
+        <t t-if="partner" name="partner_header">
+          <t t-set="address">
+            <div t-esc="partner"
+                 t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True}"/>
+          </t>
+        </t>
+
+        <div class="page page-stock-report page-delivery-slip">
+
+          <!-- Block: Basic Info -->
+          <t t-call="alia_reports_stock.delivery_slip_basic_info" t-lang="lang"/>
+
+          <!-- Block: Order Table. -->
+          <t t-call="alia_reports_stock.delivery_slip_order_table" t-lang="lang"/>
+
+          <!-- Block: Concepts Table. -->
+          <t t-call="alia_reports_stock.delivery_slip_concepts_table" t-lang="lang"/>
+
+          <!-- Block: Concepts Done Table. -->
+          <t t-call="alia_reports_stock.delivery_slip_concepts_done_table" t-lang="lang"/>
+
+          <!-- Block: Shipping Warning. -->
+          <t t-call="alia_reports_stock.delivery_slip_shipping_warning" t-lang="lang"/>
+
+        </div>
+
+      </t>
+    </template>
+
+    <!-- [Document] Single Document -->
+    <template name="Alia Reports - Stock - Delivery Slip Document"
+              id="alia_reports_stock.report_delivery_slip_template_document"
+              inherit_id="stock.report_delivery_document"
+              primary="True">
+      <xpath expr="//t[@t-call='web.external_layout']" position="replace">
+        <t t-call="alia_reports_stock.report_delivery_slip" t-lang="lang"/>
+      </xpath>
+    </template>
+
+    <!-- [Looper] Document looper (Multiple documents) -->
+    <template name="Alia Reports - Stock - Delivery Slip Document Looper"
+              id="alia_reports_stock.report_delivery_slip_template"
+              inherit_id="stock.report_deliveryslip">
+      <xpath expr="//t[@t-call='stock.report_delivery_document']" position="replace">
+        <t t-set="lang" t-value="o.partner_id.lang"/>
+        <t t-call="alia_reports_stock.report_delivery_slip_template_document" t-lang="lang"/>
+      </xpath>
+    </template>
+
+
+  </data>
+</odoo>

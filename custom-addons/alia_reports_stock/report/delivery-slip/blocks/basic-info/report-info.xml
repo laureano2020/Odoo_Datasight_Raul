@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <template name="Alia Reports - Stock Block: Delivery Slip Report Info"
+              id="alia_reports_stock.delivery_slip_report_info">
+
+      <div id="alia-reports-stock-delivery-slip-report-info" class="alia-reports-block">
+
+        <div class="basic-report-info">
+          <div t-if="o.name" class="highlight-text">
+            <strong>Ref.</strong>
+            <span t-field="o.name"/>
+          </div>
+          <div t-if="o.origin">
+            <strong>Order</strong>
+            <span t-field="o.origin"/>
+          </div>
+          <div t-if="o.date_done or o.scheduled_date">
+            <strong>Date</strong>
+            <t t-if="o.state == 'done'">
+              <span t-field="o.date_done" t-options="{'widget': 'date'}"/>
+            </t>
+            <t t-if="o.state != 'done'">
+              <span t-field="o.scheduled_date" t-options="{'widget': 'date'}"/>
+            </t>
+          </div>
+        </div>
+
+      </div>
+
+    </template>
+  </data>
+</odoo>
